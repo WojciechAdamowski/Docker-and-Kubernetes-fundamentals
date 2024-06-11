@@ -20,7 +20,8 @@ I made this project, because I would like to learn new technologies (Docker and 
 - not on app appearance
 
 ## Content
-#TODO Continue to fill this in as the project grows
+1. [First look at web app](WebApp\FirstLook.md)
+<!-- #TODO Continue to fill this in as the project grows -->
 
 ## Languages
 <div>
@@ -73,18 +74,21 @@ I made this project, because I would like to learn new technologies (Docker and 
 3. Kubernetes - included in docker desktop 
 4. Some IDE - I prefere VS Code considering the number of extensions, but you can use Notepad++ or something similar
 
-#TODO Continue to fill this in as the project grows
+<!-- #TODO Continue to fill this in as the project grows -->
 
 ## What you can learn from this project?
-#TODO Continue to fill this in as the project grows
+<!-- #TODO Continue to fill this in as the project grows  -->
 
 ## Future
 1. [ ] Add database - Postgres/Oracle/MySQL
 
-#TODO Continue to fill this in as the project grows
+
+<!-- #TODO Continue to fill this in as the project grows  -->
 
 ## License
-#TODO To fill?
+<!-- #TODO To fill?  -->
+
+
 
 ## Helpful links
 * https://www.makeareadme.com/
