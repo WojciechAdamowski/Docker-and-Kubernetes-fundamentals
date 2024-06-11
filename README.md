@@ -20,52 +20,50 @@ I made this project, because I would like to learn new technologies (Docker and 
 - not on app appearance
 
 ## Content
-#TODO Content to fill
-
 #TODO Continue to fill this in as the project grows
 
 ## Languages
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=python" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=python"/>
     <p><a href="https://www.python.org/doc/">Python</a> - I choose this language, because it is very simple to build web application using it. Especially when combine it with the Flask</p>
 </div>
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=powershell" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=powershell"/>
     <p><a href="https://learn.microsoft.com/en-us/powershell/">Powershell</a> - I have been using this language to build scripts for Docker and Kubernetes operations</p>
 </div>
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=bash" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=bash"/>
     <p><a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html">Bash</a> - this language was used to make some operations on Busybox in Docker containers</p>
 </div>
 <div>
-    <img width=20 height=20 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyR75Q16mHbDINVw8Wko5FH80WH41M7Htb_YAKaaYKxxftp8_SJh_mXCZ2muYMxwspWL8&usqp=CAU" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyR75Q16mHbDINVw8Wko5FH80WH41M7Htb_YAKaaYKxxftp8_SJh_mXCZ2muYMxwspWL8&usqp=CAU"/>
     <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html#yaml-basics">Yaml</a> - this language is necessary to building the configuration file for Kubernetes</p>
 </div>
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=git" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=git"/>
     <p><a href="https://git-scm.com/docs/git">Git</a> - CI/CD (continuous integration/continuous delivery)</p>
 </div>
 
 ## Syntax
 - python - snake_case
 - powershell - kebab-case / camelCase 
-- notes Syntax - I marked the values to be replaced with {} e.g. {ContainerName}
+- notes - I marked the values to be replaced with {} e.g. {ContainerName}
 
 ## Tools
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=docker" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=docker"/>
     <p><a href="https://www.docker.com/get-started/">Docker + DockerHub</a></p>
 </div>
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=kubernetes" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=kubernetes"/>
     <p><a href="https://kubernetes.io/docs/concepts/overview/">Kubernetes</a></p>
 </div>
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=flask" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=flask"/>
     <p><a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a></p>
 </div>
 <div>
-    <img width=20 height=20 src="https://skillicons.dev/icons?i=vscode" style="float:left;padding-right:8px;"/>
+    <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=vscode"/>
     <p><a href="https://code.visualstudio.com/">Visual Studio Code</a></p>
 </div>
 
@@ -81,7 +79,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 #TODO Continue to fill this in as the project grows
 
 ## Future
-1. Add database - Postgres/Oracle/MySQL
+1. [ ] Add database - Postgres/Oracle/MySQL
 
 #TODO Continue to fill this in as the project grows
 
@@ -91,4 +89,5 @@ I made this project, because I would like to learn new technologies (Docker and 
 ## Helpful links
 * https://www.makeareadme.com/
 * https://medium.com/@kc_clintone/the-ultimate-guide-to-writing-a-great-readme-md-for-your-project-3d49c2023357
+* https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
