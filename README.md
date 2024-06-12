@@ -1,3 +1,12 @@
+<!-- #TODO - Add section for installation every tool -->
+
+<!-- #TODO ~ Content                                  - Continue to fill this in as the project grows -->
+<!-- #TODO ~ What do you need?                        - Continue to fill this in as the project grows -->
+<!-- #TODO ~ What you can learn from this project?    - Continue to fill this in as the project grows -->
+<!-- #TODO ~ Future                                   - Continue to fill this in as the project grows -->
+
+<!-- #TODO + License to fill? -->
+
 # Docker-and-Kubernetes-fundamentals
 
 [![My Skills](https://skillicons.dev/icons?i=docker,kubernetes,python,flask,powershell,bash,git,vscode)](https://skillicons.dev)
@@ -21,7 +30,6 @@ I made this project, because I would like to learn new technologies (Docker and 
 
 ## Content
 1. [First look at web app](WebApp\FirstLook.md)
-<!-- #TODO Continue to fill this in as the project grows -->
 
 ## Languages
 <div>
@@ -74,21 +82,12 @@ I made this project, because I would like to learn new technologies (Docker and 
 3. Kubernetes - included in docker desktop 
 4. Some IDE - I prefere VS Code considering the number of extensions, but you can use Notepad++ or something similar
 
-<!-- #TODO Continue to fill this in as the project grows -->
-
-## What you can learn from this project?
-<!-- #TODO Continue to fill this in as the project grows  -->
+<!-- ## What you can learn from this project? -->
 
 ## Future
 1. [ ] Add database - Postgres/Oracle/MySQL
 
-
-<!-- #TODO Continue to fill this in as the project grows  -->
-
-## License
-<!-- #TODO To fill?  -->
-
-
+<!-- ## License -->
 
 ## Helpful links
 * https://www.makeareadme.com/
