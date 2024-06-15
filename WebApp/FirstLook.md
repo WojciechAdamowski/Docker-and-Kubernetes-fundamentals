@@ -1,20 +1,20 @@
-<!-- TODO: Add other steps -->
-<!-- TODO: Think about notebook structure -->
+
 <!-- TODO: Test all of the steps -->
 <!-- TODO: Copy code to the file -->
 <!-- TODO: Try to make links to sections -->
 
 # First look
 In this section we will take a closer look at the:
-1. Checking all instalations
-2. Create the virtual environment for Python
-3. The raw startup of web applications
+1. [Checking all instalations](#step-1---checking-all-instalations)
+2. [Create the virtual environment for App](#step-2---create-the-virtual-environment-for-app)
+3. [The raw startup of web application](#step-3---the-raw-startup-of-web-application)
 
 ## Info
 * I hope you installed everything from the **What do you need?** section
 * If you are only interested in the powershell code, you can find it [here](FirstLook.ps1)
 
 ## Steps
+
 ### Step 1 - Checking all instalations
 
 1. Check is Python installed 
@@ -41,12 +41,21 @@ kubectl version --client
 # RETURNS: Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 ```
 
-### Step 2 - Create the virtual environment for Python
+### Step 2 - Create the virtual environment for app
 
-1. Go to your App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
+0. Go to your repo location (where you clone repo)
 
 ```powershell
-Set-Location "Docker-and-Kubernetes-fundamentals\WebApp\App"
+Set-Location "your\repository\path"
+
+# RETURNS: null
+# INFO: We change directory where we are running powershell commands
+```
+
+1. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
+
+```powershell
+Set-Location "WebApp\App"
 
 # RETURNS: null
 # INFO: We change directory where we are running powershell commands
@@ -93,4 +102,56 @@ deactivate
 
 # RETURNS: null
 # INFO: As you can see there is no more mark (venv) in your terminal
+
+```
+
+## Step 3 - The raw startup of web application
+
+0. Go to your repo location (where you clone repo)
+
+```powershell
+Set-Location "your\repository\path"
+
+# RETURNS: null
+# INFO: We change directory where we are running powershell commands
+```
+
+1. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
+
+```powershell
+Set-Location "WebApp\App"
+
+# RETURNS: null
+# INFO: We change directory where we are running powershell commands
+```
+
+2. Switch to venv environment
+
+```powershell
+.\venv\Scripts\activate
+
+# RETURNS: null
+# INFO: You can notice there is (venv) mark in your terminal
+```
+
+3. Run app using Python
+
+```powershell
+python app.py
+
+# RETURNS: Information about running app in Flask
+```
+
+4. Check running application at http://127.0.0.1:5000 address, browser should display ```Flask project ver. 1```
+
+5. If everything looks fine stop application by ```Ctrl + C``` in terminal
+
+6. Exit from venv
+
+```powershell
+deactivate
+
+# RETURNS: null
+# INFO: As you can see there is no more mark (venv) in your terminal
+
 ```
