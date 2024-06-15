@@ -6,16 +6,16 @@
 
 # First look
 In this section we will take a closer look at the:
-1. [ ] Checking all instalations
-2. [ ] Create the virtual environment for Python
-3. [ ] The raw startup of web applications
+1. Checking all instalations
+2. Create the virtual environment for Python
+3. The raw startup of web applications
 
 ## Info
 * I hope you installed everything from the **What do you need?** section
 * If you are only interested in the powershell code, you can find it [here](FirstLook.ps1)
 
 ## Steps
-### [x] Step 1 - Checking all instalations
+### Step 1 - Checking all instalations
 
 1. Check is Python installed 
 
@@ -41,7 +41,7 @@ kubectl version --client
 # RETURNS: Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 ```
 
-### [x] Step 2 - Create the virtual environment for Python
+### Step 2 - Create the virtual environment for Python
 
 1. Go to your App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
 
