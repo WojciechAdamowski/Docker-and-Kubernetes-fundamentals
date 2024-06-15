@@ -70,7 +70,7 @@ python -m venv venv
 # INFO: You can notice there is (venv) mark in your terminal
 ```
 
-4. Now install all necessary libraries from the [requirements file](App\requirements.txt)
+4. Now install all necessary libraries from the [requirements file](App/requirements.txt)
 
 ```powershell
 pip install -r requirements.txt
