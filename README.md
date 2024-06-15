@@ -30,7 +30,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 - not on app appearance
 
 ## Content
-1. [First look at web app](WebApp/FirstLook.md)
+1. [First look at web app](WebApp\FirstLook.md)
 
 ## Languages
 <div>
