@@ -1,7 +1,9 @@
 
 <!-- TODO: Test all of the steps -->
 <!-- TODO: Copy code to the file -->
-<!-- TODO: Try to make links to sections -->
+<!-- TODO: Add icons of used languages -->
+<!-- TODO: Add link to app file -->
+<!-- TODO: Add short comments to app -->
 
 # First look
 In this section we will take a closer look at the:
