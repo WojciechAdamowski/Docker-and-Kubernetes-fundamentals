@@ -1,6 +1,3 @@
-
-<!-- TODO: Add short comments to app -->
-
 # First look
 [![My Skills](https://skillicons.dev/icons?i=python,flask,powershell,vscode)](https://skillicons.dev)
 

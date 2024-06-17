@@ -2,6 +2,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
+'''
+When you route to "/read" it will read a file and return content to the website 
+'''
 @app.route("/read")
 def read_messages():
     f_read = open("./data/data.txt", "r")
@@ -15,6 +18,9 @@ def read_messages():
     f_read.close()
     return file_content
 
+'''
+When you route to "/append" it will add "new message" to the data.txt file
+'''
 @app.route("/append")
 def add_message():
     f_append = open("./data/data.txt", "a")
@@ -23,6 +29,9 @@ def add_message():
 
     return "YOU SUCCESFULLY ADD MESSAGE"
 
+'''
+When you open http://127.0.0.1:5000 it returns the following text
+'''
 @app.route("/")
 def home():
     return "Flask project ver. 1"
