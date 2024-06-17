@@ -1,7 +1,7 @@
 # Step 1 - Checking all instalations
-<# 1. #> python --version
-<# 2. #> docker --version
-<# 3. #> kubectl version --client
+python --version
+docker --version
+kubectl version --client
 
 # Step 2 - Create the virtual environment for app
 Set-Location "your\repository\path"
