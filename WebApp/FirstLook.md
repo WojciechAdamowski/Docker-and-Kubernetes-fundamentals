@@ -1,6 +1,4 @@
 
-<!-- TODO: Add icons of used languages -->
-<!-- TODO: Add link to app file -->
 <!-- TODO: Add short comments to app -->
 
 # First look
@@ -45,7 +43,7 @@ kubectl version --client
 
 ### Step 2 - Create the virtual environment for app
 
-0. Go to your repo location (where you clone repo)
+1. Go to your repo location (where you clone repo)
 
 ```powershell
 Set-Location "your\repository\path"
@@ -54,7 +52,7 @@ Set-Location "your\repository\path"
 # INFO: We change directory where we are running powershell commands
 ```
 
-1. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
+2. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
 
 ```powershell
 Set-Location "WebApp\App"
@@ -63,7 +61,7 @@ Set-Location "WebApp\App"
 # INFO: We change directory where we are running powershell commands
 ```
 
-2. We create virtual environment for python (venv)
+3. We create virtual environment for python (venv)
 
 ```powershell
 python -m venv venv
@@ -72,7 +70,7 @@ python -m venv venv
 # INFO: You can notice it created a new folder called venv
 ```
 
-3. Switch to venv environment
+4. Switch to venv environment
 
 ```powershell
 .\venv\Scripts\activate
@@ -81,7 +79,7 @@ python -m venv venv
 # INFO: You can notice there is (venv) mark in your terminal
 ```
 
-4. Now install all necessary libraries from the [requirements file](App/requirements.txt)
+5. Now install all necessary libraries from the [requirements file](App/requirements.txt)
 
 ```powershell
 pip install -r requirements.txt
@@ -89,7 +87,7 @@ pip install -r requirements.txt
 # RETURNS: Collecting and installing libraries
 ```
 
-5. Fast look at the list of libraries
+6. Fast look at the list of libraries
 
 ```powershell
 pip list
@@ -97,7 +95,7 @@ pip list
 # RETURNS: List of libraries
 ```
 
-6. Exit from venv
+7. Exit from venv
 
 ```powershell
 deactivate
@@ -109,7 +107,7 @@ deactivate
 
 ## Step 3 - The raw startup of web application
 
-0. Go to your repo location (where you clone repo)
+1. Go to your repo location (where you clone repo)
 
 ```powershell
 Set-Location "your\repository\path"
@@ -118,7 +116,7 @@ Set-Location "your\repository\path"
 # INFO: We change directory where we are running powershell commands
 ```
 
-1. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
+2. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
 
 ```powershell
 Set-Location "WebApp\App"
@@ -127,7 +125,7 @@ Set-Location "WebApp\App"
 # INFO: We change directory where we are running powershell commands
 ```
 
-2. Switch to venv environment
+3. Switch to venv environment
 
 ```powershell
 .\venv\Scripts\activate
@@ -136,7 +134,9 @@ Set-Location "WebApp\App"
 # INFO: You can notice there is (venv) mark in your terminal
 ```
 
-3. Run app using Python
+4. Take a quick look at the [application](App\app.py) to know what are you running
+
+5. Run app using Python
 
 ```powershell
 python app.py
@@ -144,16 +144,15 @@ python app.py
 # RETURNS: Information about running app in Flask
 ```
 
-4. Check running application at http://127.0.0.1:5000 address, browser should display ```Flask project ver. 1```
+6. Check running application at http://127.0.0.1:5000 address, browser should display ```Flask project ver. 1```
 
-5. If everything looks fine stop application by ```Ctrl + C``` in terminal
+7. If everything looks fine stop application by ```Ctrl + C``` in terminal
 
-6. Exit from venv
+8. Exit from venv
 
 ```powershell
 deactivate
 
 # RETURNS: null
 # INFO: As you can see there is no more mark (venv) in your terminal
-
 ```
