@@ -1,11 +1,11 @@
 
-<!-- TODO: Test all of the steps -->
-<!-- TODO: Copy code to the file -->
 <!-- TODO: Add icons of used languages -->
 <!-- TODO: Add link to app file -->
 <!-- TODO: Add short comments to app -->
 
 # First look
+[![My Skills](https://skillicons.dev/icons?i=python,flask,powershell,vscode)](https://skillicons.dev)
+
 In this section we will take a closer look at the:
 1. [Checking all instalations](#step-1---checking-all-instalations)
 2. [Create the virtual environment for App](#step-2---create-the-virtual-environment-for-app)
