@@ -1,12 +1,8 @@
-<!-- #TODO FIX - links to files -->
-<!-- #TODO - Add section for installation every tool -->
 
 <!-- #TODO ~ Content                                  - Continue to fill this in as the project grows -->
 <!-- #TODO ~ What do you need?                        - Continue to fill this in as the project grows -->
 <!-- #TODO ~ What you can learn from this project?    - Continue to fill this in as the project grows -->
 <!-- #TODO ~ Future                                   - Continue to fill this in as the project grows -->
-
-<!-- #TODO + License to fill? -->
 
 # Docker-and-Kubernetes-fundamentals
 
