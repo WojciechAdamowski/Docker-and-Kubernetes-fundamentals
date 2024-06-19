@@ -131,7 +131,7 @@ Set-Location "WebApp\App"
 # INFO: You can notice there is (venv) mark in your terminal
 ```
 
-4. Take a quick look at the [application](App\app.py) to know what are you running
+4. Take a quick look at the [application](App/app.py) to know what are you running
 
 5. Run app using Python
 
