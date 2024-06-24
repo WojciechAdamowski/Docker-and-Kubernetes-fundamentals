@@ -26,6 +26,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 - not on app appearance
 
 ## Content
+1. [Tools installation](ToolsInstallation/FirstLook.md)
 1. [First look at web app](FirstLook/FirstLook.md)
 
 ## Languages
@@ -74,10 +75,10 @@ I made this project, because I would like to learn new technologies (Docker and 
 </div>
 
 ## What do you need?
-1. Python - remember to set a environment path
-2. Docker desktop
-3. Kubernetes - included in docker desktop 
-4. Some IDE - I prefere VS Code considering the number of extensions, but you can use Notepad++ or something similar
+1. Python
+2. Docker
+3. Kubernetes
+4. Some IDE
 
 <!-- ## What you can learn from this project? -->
 
