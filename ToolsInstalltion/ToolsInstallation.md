@@ -59,7 +59,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 11. We have to install Kubernetes too, so lets move to the settings and select the _Enable Kubernetes_ option 
 
-![kubernetes_installation](images\kubernetes_installation.png)
+![kubernetes_installation](images/kubernetes_installation.png)
 
 12. Click install button
 
@@ -75,7 +75,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 3. Check _Add python.exe to PATH_ option
 
-![python_installation](images\python_installation.png)
+![python_installation](images/python_installation.png)
 
 4. Click install now button
 

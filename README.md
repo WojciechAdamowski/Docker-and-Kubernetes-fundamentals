@@ -26,7 +26,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 - not on app appearance
 
 ## Content
-1. [Tools installation](ToolsInstallation/FirstLook.md)
+1. [Tools installation](ToolsInstallation/ToolsInstallation.md)
 1. [First look at web app](FirstLook/FirstLook.md)
 
 ## Languages
