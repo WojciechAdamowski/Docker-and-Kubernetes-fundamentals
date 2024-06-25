@@ -20,8 +20,8 @@ EXPOSE 5000
 ##### COPY #####
 # The COPY instruction copies the specified file (requirements.txt) or files from the specified directory
 # to given location (.)
-COPY requirements.txt .
-COPY . /app
+COPY ./FirstLook/App/requirements.txt .
+COPY ./FirstLook/App /app
 
 ##### WORKDIR #####
 # This instruction sets directory in Dokcer image for RUN, CMD, ENTRYPOINT, COPY and ADD operations.
