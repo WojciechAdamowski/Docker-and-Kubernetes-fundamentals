@@ -1,7 +1,7 @@
 #TODO Add marks and comments for steps
 #TODO Clear repo path
 
-$repoPath = 'E:\Projekt\Docker-and-Kubernetes-fundamentals'
+$repoPath = 'your\repo\path'
 
 # Run app using Docker file 
 Set-Location $repoPath
