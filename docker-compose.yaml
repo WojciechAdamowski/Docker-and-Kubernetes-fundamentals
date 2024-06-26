@@ -2,12 +2,12 @@ version: '1.0'
 
 services:
   web:
-    image: app:v1
+    image: docker-run-app:v1
     build: .
     ports:
       - 5000:5000/tcp
     volumes:
-      - appv1_volume:/app/data
+      - docker-run-app-volume:/app/data
 volumes:
-  appv1_volume:
+  docker-run-app-volume:
     external: true
