@@ -13,6 +13,103 @@ In this section, we will focus on how to use the Docker file and compose file to
 ## Steps
 
 ### Step 1 - Running the application using the Docker file
+
+1. Run Powershell terminal
+
+2. Move to repo location
+```powershell
+Set-Location 'your\repo\path'
+
+# RETURNS: null
+```
+
+3. Build Docker image
+
+```powershell
+docker image build --rm --pull --tag docker-run-app:v1 --file dockerfile .
+
+# RETURNS: Informations about building process
+```
+
+<details>
+<summary> INFO - docker image build parameters</summary>
+
+| Parameter | Value                 | Description |
+| --------- | -----                 | ----------- |
+| --rm      |                       | Removing intermediate containers after a successful build |
+| --pull    |                       | Always attempt to pull a newer version of the image |
+| --tag     | {name:tag}            | Image name, it can't contains large characters |
+| --file    | {path_to_docker_file} | Build image using a specified Dockerfile  |
+| PATH      | .                     | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
+
+</details>
+</br>
+
+4. Run Docker container
+
+```powershell
+docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp docker-run-app:v1
+
+# RETURNS: e804bc08a506d30faed022005dafd4ca27d3e286a9aa4f1dd0ee50b8c0ace3ad
+# INFO: Container id
+```
+
+<details>
+<summary> INFO - docker container run parameters</summary>
+
+| Parameter     | Value                 | Description |
+| ---------     | -----                 | ----------- |
+| --rm          |                       | Use it if you'd like Docker to automatically clean up the container and remove the file system when the container exits |
+| --detach      |                       | Running container in detach mode and return container id |
+| --name        | {name}                | Container name, it can't contains large characters |
+| --publish     | {port/protocol}       | This parameter bind container port 5000 to TCP port 5000 of the host |
+| IMAGE_NAME    | docker-run-app:v1     | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
+
+</details>
+</br>
+
+5. Check if our image exists, so print all images
+
+```powershell
+docker image ls
+
+# RETURNS: All images properties
+```
+
+6. You can print only our image too
+
+```powershell
+docker image ls docker-run-app
+
+# RETURNS:
+# REPOSITORY       TAG       IMAGE ID       CREATED        SIZE
+# docker-run-app   v1        4cc7737f1883   15 hours ago   167MB
+
+# INFO: Image properties
+```
+
+7. Check if our container exists
+
+```powershell
+docker container ls
+
+# RETURNS: 
+# CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS         PORTS                    NAMES
+# e804bc08a506   docker-run-app:v1   "gunicorn --bind 0.0…"   6 minutes ago   Up 6 minutes   0.0.0.0:5000->5000/tcp   docker-run-app
+
+# INFO: Container properties
+```
+
+8. Alright, if everything is fine let's stop our container. We don't remove the image because we will need it later
+
+```powershell
+docker stop docker-run-app
+
+# RETURNS: docker-run-app
+# INFO: Container name 
+```
+
+
 ### Step 2 - Running the application with a volume for data storing
 ### Step 3 - Running the application using the Docker compose file
 ### Step 4 - Volume exercise
