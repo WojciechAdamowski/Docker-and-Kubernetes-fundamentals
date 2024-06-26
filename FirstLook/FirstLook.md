@@ -49,10 +49,10 @@ Set-Location "your\repository\path"
 # INFO: We change directory where we are running powershell commands
 ```
 
-2. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
+2. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\FirstLook\App"
 
 ```powershell
-Set-Location "WebApp\App"
+Set-Location "FirstLook\App"
 
 # RETURNS: null
 # INFO: We change directory where we are running powershell commands
@@ -113,10 +113,10 @@ Set-Location "your\repository\path"
 # INFO: We change directory where we are running powershell commands
 ```
 
-2. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\WebApp\App"
+2. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\FirstLook\App"
 
 ```powershell
-Set-Location "WebApp\App"
+Set-Location "FirstLook\App"
 
 # RETURNS: null
 # INFO: We change directory where we are running powershell commands
