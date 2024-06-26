@@ -1,6 +1,3 @@
-#TODO Add marks and comments for steps
-#TODO Clear repo path
-
 $repoPath = 'your\repo\path'
 
 # Run app using Docker file 
