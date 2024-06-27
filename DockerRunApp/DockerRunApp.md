@@ -12,6 +12,9 @@ In this section we will take a closer look at the:
 * If you are intresting in Powershell only, look at this [file](DockerRunApp.ps1)
 * Ofcourse to check all new objects you can simply use the Docker Desktop application
 
+#TODO add informations about containers 
+#TODO add informations about images
+
 ## Steps
 
 ### Step 1 - Running the application using the Docker file
@@ -38,8 +41,8 @@ docker image build --rm --pull --tag docker-run-app:v1 --file dockerfile .
 
 | Parameter | Value                 | Description |
 | --------- | -----                 | ----------- |
-| --rm      |                       | Removing intermediate containers after a successful build |
-| --pull    |                       | Always attempt to pull a newer version of the image |
+| --rm      | _switch_              | Removing intermediate containers after a successful build |
+| --pull    | _switch_              | Always attempt to pull a newer version of the image |
 | --tag     | {name:tag}            | Image name, it can't contains large characters |
 | --file    | {path_to_docker_file} | Build image using a specified Dockerfile  |
 | PATH      | .                     | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
@@ -53,7 +56,7 @@ docker image build --rm --pull --tag docker-run-app:v1 --file dockerfile .
 docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp docker-run-app:v1
 
 # RETURNS: e804bc08a506d30faed022005dafd4ca27d3e286a9aa4f1dd0ee50b8c0ace3ad
-# INFO: Container id
+# INFO: Random generated container id
 ```
 
 <details>
@@ -61,11 +64,11 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 
 | Parameter     | Value                 | Description |
 | ---------     | -----                 | ----------- |
-| --rm          |                       | Use it if you'd like Docker to automatically clean up the container and remove the file system when the container exits |
-| --detach      |                       | Running container in detach mode and return container id |
+| --rm          | _switch_              | Use it if you'd like Docker to automatically clean up the container and remove the file system when the container exits |
+| --detach      | _switch_              | Running container in detach mode and return container id |
 | --name        | {name}                | Container name, it can't contains large characters |
 | --publish     | {port/protocol}       | This parameter bind container port 5000 to TCP port 5000 of the host |
-| IMAGE_NAME    | docker-run-app:v1     | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
+| IMAGE_NAME    | {image_name}          | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
 
 </details>
 </br>
@@ -88,7 +91,7 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 ```powershell
 docker image ls
 
-# RETURNS: All images properties
+# RETURNS: All images with properties
 ```
 
 6. You can print only our image too
@@ -149,7 +152,7 @@ docker volume ls
 # DRIVER    VOLUME NAME
 # local     docker-run-app-volume
 
-# INFO: Volumes properties 
+# INFO: List of volumes with properties 
 ```
 
 3. Now let's run container with created volume
@@ -239,7 +242,7 @@ docker compose --file docker-compose.yaml --project-name docker-run-app-compose 
 </br>
 
 3. If everything is fine there should be:
-    * created image `docker image ls`
+    * created image `docker image ls docker-run-app`
     * running container `docker container ls`
     * available app at http://localhost:5000
 
