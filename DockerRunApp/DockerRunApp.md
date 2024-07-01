@@ -13,12 +13,24 @@ In this section, we will focus on how to use the Docker file and compose file to
 * Ofcourse to check all new objects you can simply use the Docker Desktop application
 * I only show necessary informations about the Docker container and image because there are plenty of articles on the web
 
+<details>
+<summary> INFO - brief ports informations</summary>
+
+| Port      | Protocol |
+| --------- | -------- |
+| 20/21     | (FTP) File Transfer Protocol |
+| 2         | (SSH) Secure Shell |
+| 80        | (HTTP) Hypertext Transfer Protocol |
+| 443       | (HTTPS) Hypertext Transfer Protocol over SSL/TLS |
+| 5000      | It is a port for Flask development server and several other applications |
+
+</details>
+
 ### Docker 
 * **What is Docker?** Docker is a tool which allows you to create a running environment caontaining any Linux distribution and all dependencies needed in your application. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/) 
 * **What is Docker image?** This is build for run environment. You can create it from Docker file where you set dependencies, ports and so on. If you want to share Docker project with someone, you are using Docker image to achive this. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#images) 
 * **What is Docker container?** This is running environment for our project. Inside of this you can run commands to launch previously written applications. You must create Docker image to run Docker container. In short, a container is a running image. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#containers) 
 
-<div style="margin-left: 20px">
 <details>
 <summary> Docker objects - essential information</summary>
 </br>
@@ -47,7 +59,55 @@ In this section, we will focus on how to use the Docker file and compose file to
     * [docker compose](https://docs.docker.com/reference/cli/docker/compose/)
 
 </details>
-</div>
+</br>
+
+<details>
+<summary> Parameters - docker image build </summary>
+
+
+| Parameter | Value                 | Description |
+| --------- | -----                 | ----------- |
+| --rm      | _switch_              | Removing intermediate containers after a successful build |
+| --pull    | _switch_              | Always attempt to pull a newer version of the image |
+| --tag     | {name:tag}            | Image name, it can't contains large characters |
+| --file    | {path_to_docker_file} | Build image using a specified Dockerfile  |
+| PATH      | .                     | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
+
+</details>
+
+<details>
+<summary> Parameters - docker container run </summary>
+
+| Parameter     | Value                 | Description |
+| ---------     | -----                 | ----------- |
+| --rm          | _switch_              | Use it if you'd like Docker to automatically clean up the container and remove the file system when the container exits |
+| --detach      | _switch_              | Running container in detach mode and return container id |
+| --name        | {name}                | Container name, it can't contains large characters |
+| --publish     | {port/protocol}       | This parameter bind container port 5000 to TCP port 5000 of the host |
+| IMAGE_NAME    | {image_name}          | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
+
+</details>
+
+<details>
+<summary> Parameters - docker container run volume </summary>
+
+| Parameter     | Value                         | Description |
+| ---------     | -----                         | ----------- |
+| --volume      | {volume_name}:{folderPath}    | Use this parameter to attach a volume to a container and specify the folder path to copy to the volume |
+
+</details>
+
+<details>
+<summary> Parameters - docker compose </summary>
+
+| Parameter         | Value         | Description |
+| ---------         | -----         | ----------- |
+| --file            | {filePath}    | Docker compose file path |
+| --project-name    | {name}        | Project name created from compose file |
+| --detach          | _switch_      | Run in detach mode |
+
+</details>
+
 
 ## Steps
 
@@ -71,21 +131,6 @@ docker image build --rm --pull --tag docker-run-app:v1 --file dockerfile .
 # RETURNS: Informations about building process
 ```
 
-<details>
-<summary> INFO - docker image build </summary>
-
-
-| Parameter | Value                 | Description |
-| --------- | -----                 | ----------- |
-| --rm      | _switch_              | Removing intermediate containers after a successful build |
-| --pull    | _switch_              | Always attempt to pull a newer version of the image |
-| --tag     | {name:tag}            | Image name, it can't contains large characters |
-| --file    | {path_to_docker_file} | Build image using a specified Dockerfile  |
-| PATH      | .                     | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
-
-</details>
-</br>
-
 4. Run Docker container
 
 ```powershell
@@ -94,31 +139,6 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 # RETURNS: e804bc08a506d30faed022005dafd4ca27d3e286a9aa4f1dd0ee50b8c0ace3ad
 # INFO: Random generated container id
 ```
-
-<details>
-<summary> INFO - docker container run parameters</summary>
-
-| Parameter     | Value                 | Description |
-| ---------     | -----                 | ----------- |
-| --rm          | _switch_              | Use it if you'd like Docker to automatically clean up the container and remove the file system when the container exits |
-| --detach      | _switch_              | Running container in detach mode and return container id |
-| --name        | {name}                | Container name, it can't contains large characters |
-| --publish     | {port/protocol}       | This parameter bind container port 5000 to TCP port 5000 of the host |
-| IMAGE_NAME    | {image_name}          | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
-
-</details>
-<details>
-<summary> INFO - brief ports informations</summary>
-
-| Port      | Protocol |
-| --------- | -------- |
-| 20/21     | (FTP) File Transfer Protocol |
-| 2         | (SSH) Secure Shell |
-| 80        | (HTTP) Hypertext Transfer Protocol |
-| 443       | (HTTPS) Hypertext Transfer Protocol over SSL/TLS |
-| 5000      | It is a port for Flask development server and several other applications |
-
-</details>
 
 5. Check if our image exists, so print all images
 
@@ -198,15 +218,6 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 # INFO: Container id
 ```
 
-<details>
-<summary> INFO - docker container run volume parameter</summary>
-
-| Parameter     | Value                         | Description |
-| ---------     | -----                         | ----------- |
-| --volume      | {volume_name}:{folderPath}    | Use this parameter to attach a volume to a container and specify the folder path to copy to the volume |
-
-</details>
-
 4. As you can see at the http://localhost:5000/read address only one message occurs, because when we created previous container we didn't use volume, thus Docker didn't store any data. 
 
 5. Now we are using volume in our container so we can add few messages to our "datastore". Open and refresh http://localhost:5000/append few times
@@ -261,17 +272,6 @@ docker compose --file docker-compose.yaml --project-name docker-run-app-compose 
 
 # RETURNS: Informations about building process
 ```
-
-<details>
-<summary> INFO - docker compose parameters</summary>
-
-| Parameter         | Value         | Description |
-| ---------         | -----         | ----------- |
-| --file            | {filePath}    | Docker compose file path |
-| --project-name    | {name}        | Project name created from compose file |
-| --detach          | _switch_      | Run in detach mode |
-
-</details>
 
 3. If everything is fine there should be:
     * created image `docker image ls docker-run-app`
