@@ -14,10 +14,11 @@ In this section, we will focus on how to use the Docker file and compose file to
 * I only show necessary informations about the Docker container and image because there are plenty of articles on the web
 
 ### Docker 
-* **What is Docker?** Docker is a tool which allows you to create a running environment caontaining any Linux distribution and all dependencies needed in your application. 
-* **What is Docker image?** This is build for run environment. You can create it from Docker file where you set dependencies, ports and so on. If you want to share Docker project with someone, you are using Docker image to achive this. 
-* **What is Docker container?** This is running environment for our project. Inside of this you can run commands to launch previously written applications. You must create Docker image to run Docker container. In short, a container is a running image
+* **What is Docker?** Docker is a tool which allows you to create a running environment caontaining any Linux distribution and all dependencies needed in your application. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/) 
+* **What is Docker image?** This is build for run environment. You can create it from Docker file where you set dependencies, ports and so on. If you want to share Docker project with someone, you are using Docker image to achive this. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#images) 
+* **What is Docker container?** This is running environment for our project. Inside of this you can run commands to launch previously written applications. You must create Docker image to run Docker container. In short, a container is a running image. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#containers) 
 
+<div style="margin-left: 20px">
 <details>
 <summary> Docker objects - essential information</summary>
 </br>
@@ -25,10 +26,28 @@ In this section, we will focus on how to use the Docker file and compose file to
 ![DockerObjects](images/DockerFundamentals.drawio.png)
 
 </details>
+
+<details>
+<summary> Docker commands - official documentation for every command used in this section</summary>
 </br>
 
-#TODO Add links to documentations for every function 
-#TODO Review every file carefully
+* Images
+    * [docker image build](https://docs.docker.com/reference/cli/docker/image/build/)
+    * [docker image ls](https://docs.docker.com/reference/cli/docker/image/ls/)
+    * [docker image remove](https://docs.docker.com/reference/cli/docker/image/remove/)
+* Containers
+    * [docker container run](https://docs.docker.com/reference/cli/docker/container/run/)
+    * [docker container ls](https://docs.docker.com/reference/cli/docker/container/ls/)
+    * [docker container stop](https://docs.docker.com/reference/cli/docker/container/stop/)
+* Volumes
+    * [docker volume create](https://docs.docker.com/reference/cli/docker/volume/create/)
+    * [docker volume ls](https://docs.docker.com/reference/cli/docker/volume/ls/)
+    * [docker volume remove](https://docs.docker.com/reference/cli/docker/volume/remove/)
+* Compose 
+    * [docker compose](https://docs.docker.com/reference/cli/docker/compose/)
+
+</details>
+</div>
 
 ## Steps
 
@@ -37,6 +56,7 @@ In this section, we will focus on how to use the Docker file and compose file to
 1. Run Powershell terminal and Docker desktop
 
 2. Move to repo location
+
 ```powershell
 Set-Location "your\repository\path"
 
@@ -52,7 +72,8 @@ docker image build --rm --pull --tag docker-run-app:v1 --file dockerfile .
 ```
 
 <details>
-<summary> INFO - docker image build parameters</summary>
+<summary> INFO - docker image build </summary>
+
 
 | Parameter | Value                 | Description |
 | --------- | -----                 | ----------- |
@@ -109,7 +130,7 @@ docker image ls
 # RETURNS: All images with properties
 ```
 
-6. You can print only our image too
+6. You can print only our image too 
 
 ```powershell
 docker image ls docker-run-app
@@ -195,7 +216,7 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 
 6. Check there is new messages at http://localhost:5000/read
 
-7. Remove container 
+7. Remove container
 
 ```powershell
 docker container stop docker-run-app
@@ -204,7 +225,7 @@ docker container stop docker-run-app
 # INFO: Container name 
 ```
 
-8. Create container one more time 
+8. Create container one more time
 
 ```powershell
 docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp --volume docker-run-app-volume:/app/data docker-run-app:v1
@@ -227,7 +248,7 @@ docker image remove docker-run-app:v1
 
 1. Take a look at [docker compose file](../docker-compose.yaml) and read it. Creating containers with compose files is much more easier than using docker commands, because we have everything in one compose file. 
 
-2. Create volume 
+2. Create volume
 
 ```powershell
 docker volume create docker-run-app-volume
@@ -236,7 +257,7 @@ docker volume create docker-run-app-volume
 # INFO: Volume name 
 ```
 
-2. Run compose file 
+2. Run compose file
 
 ```powershell
 docker compose --file docker-compose.yaml --project-name docker-run-app-compose up --detach
