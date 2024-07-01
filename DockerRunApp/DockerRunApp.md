@@ -13,8 +13,9 @@ In this section, we will focus on how to use the Docker file and compose file to
 * Ofcourse to check all new objects you can simply use the Docker Desktop application
 * I only show necessary informations about the Docker container and image because there are plenty of articles on the web
 
+</br>
 <details>
-<summary> INFO - brief ports informations</summary>
+<summary> Brief ports informations</summary>
 
 | Port      | Protocol |
 | --------- | -------- |
@@ -30,6 +31,8 @@ In this section, we will focus on how to use the Docker file and compose file to
 * **What is Docker?** Docker is a tool which allows you to create a running environment caontaining any Linux distribution and all dependencies needed in your application. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/) 
 * **What is Docker image?** This is build for run environment. You can create it from Docker file where you set dependencies, ports and so on. If you want to share Docker project with someone, you are using Docker image to achive this. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#images) 
 * **What is Docker container?** This is running environment for our project. Inside of this you can run commands to launch previously written applications. You must create Docker image to run Docker container. In short, a container is a running image. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#containers) 
+
+</br>
 
 <details>
 <summary> Docker objects - essential information</summary>
@@ -265,7 +268,7 @@ docker volume create docker-run-app-volume
 # INFO: Volume name 
 ```
 
-2. Run compose file
+3. Run compose file
 
 ```powershell
 docker compose --file docker-compose.yaml --project-name docker-run-app-compose up --detach
@@ -273,12 +276,12 @@ docker compose --file docker-compose.yaml --project-name docker-run-app-compose 
 # RETURNS: Informations about building process
 ```
 
-3. If everything is fine there should be:
+4. If everything is fine there should be:
     * created image `docker image ls docker-run-app`
     * running container `docker container ls`
     * available app at http://localhost:5000
 
-3. Stop container created by compose file
+5. Stop container created by compose file
 
 ```powershell
 docker compose --project-name docker-run-app-compose down
@@ -286,7 +289,7 @@ docker compose --project-name docker-run-app-compose down
 # RETURNS: Informations about removing process
 ```
 
-4. Remove image and volume
+6. Remove image and volume
 
 ```powershell
 docker volume remove docker-run-app-volume
