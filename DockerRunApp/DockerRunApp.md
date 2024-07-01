@@ -34,7 +34,7 @@ In this section, we will focus on how to use the Docker file and compose file to
 * Images
     * [docker image build](https://docs.docker.com/reference/cli/docker/image/build/)
     * [docker image ls](https://docs.docker.com/reference/cli/docker/image/ls/)
-    * [docker image remove](https://docs.docker.com/reference/cli/docker/image/remove/)
+    * [docker image remove](https://docs.docker.com/reference/cli/docker/image/rm/)
 * Containers
     * [docker container run](https://docs.docker.com/reference/cli/docker/container/run/)
     * [docker container ls](https://docs.docker.com/reference/cli/docker/container/ls/)
@@ -42,7 +42,7 @@ In this section, we will focus on how to use the Docker file and compose file to
 * Volumes
     * [docker volume create](https://docs.docker.com/reference/cli/docker/volume/create/)
     * [docker volume ls](https://docs.docker.com/reference/cli/docker/volume/ls/)
-    * [docker volume remove](https://docs.docker.com/reference/cli/docker/volume/remove/)
+    * [docker volume remove](https://docs.docker.com/reference/cli/docker/volume/rm/)
 * Compose 
     * [docker compose](https://docs.docker.com/reference/cli/docker/compose/)
 
@@ -107,7 +107,6 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 | IMAGE_NAME    | {image_name}          | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
 
 </details>
-</br>
 <details>
 <summary> INFO - brief ports informations</summary>
 
@@ -120,7 +119,6 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 | 5000      | It is a port for Flask development server and several other applications |
 
 </details>
-</br>
 
 5. Check if our image exists, so print all images
 
@@ -208,7 +206,6 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 | --volume      | {volume_name}:{folderPath}    | Use this parameter to attach a volume to a container and specify the folder path to copy to the volume |
 
 </details>
-</br>
 
 4. As you can see at the http://localhost:5000/read address only one message occurs, because when we created previous container we didn't use volume, thus Docker didn't store any data. 
 
@@ -275,7 +272,6 @@ docker compose --file docker-compose.yaml --project-name docker-run-app-compose 
 | --detach          | _switch_      | Run in detach mode |
 
 </details>
-</br>
 
 3. If everything is fine there should be:
     * created image `docker image ls docker-run-app`
