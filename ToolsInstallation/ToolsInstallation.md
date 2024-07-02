@@ -1,4 +1,4 @@
-# First look
+# Tools installation
 [![My Skills](https://skillicons.dev/icons?i=docker,kubernetes,python,powershell)](https://skillicons.dev)
 
 In this section we will take a closer look at the:
