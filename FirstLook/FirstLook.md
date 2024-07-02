@@ -102,7 +102,7 @@ deactivate
 
 ```
 
-## Step 3 - The raw startup of web application
+### Step 3 - The raw startup of web application
 
 1. Go to your repo location (where you clone repo)
 

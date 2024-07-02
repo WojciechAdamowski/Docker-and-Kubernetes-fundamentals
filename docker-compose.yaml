@@ -1,0 +1,21 @@
+# Project version
+version: '1.0'
+
+# List of services
+services:
+  # Service name
+  web:
+    # Image using by service
+    image: docker-run-app:v1
+    # Path to docker file
+    build: .
+    # Published port
+    ports:
+      - 5000:5000/tcp
+    # Attached volume
+    volumes:
+      - docker-run-app-volume:/app/data
+# List of volumes used in services
+volumes:
+  docker-run-app-volume:
+    external: true
