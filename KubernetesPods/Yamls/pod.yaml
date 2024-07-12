@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: web-app
+  labels:
+    name: web-app
 spec:
   containers:
-  - name: web-app
-    image: app:v1
+  - name: docker-run-app
+    image: docker-run-app:v1
     ports:
-    - containerPort: 80
+    - containerPort: 5000
