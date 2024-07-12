@@ -11,11 +11,11 @@ docker image ls docker-run-app
 kubectl apply --filename .\KubernetesPods\Yamls\pod.yaml
 kubectl describe pod web-app 
 
-# Create the pod with configurated resources
+# Create the pod with configured resources
 kubectl apply --filename .\KubernetesPods\Yamls\pod-with-resources.yaml
 kubectl describe pod web-app-with-resources
 
-# Create the pod with configurated liveness
+# Create the pod with configured liveness
 kubectl apply --filename .\KubernetesPods\Yamls\pod-with-liveness.yaml
 kubectl describe pod web-app-with-liveness
 
