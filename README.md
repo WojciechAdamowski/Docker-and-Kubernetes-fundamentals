@@ -13,7 +13,7 @@ This project has been created for help in first steps with Docker and Kubernetes
 ## Description
 Project has tutorial format, I mean if I or someone else want to remind something from Docker or Kubernetes can use this project to find notes, or examples of major topics. It is based on the [Docker Containers and Kubernetes Fundamentals – Full Hands-On Course](https://youtu.be/kTp5xUtcalw?si=wtLeE9AIiWMQOtWd) from [freeCodeCamp](https://www.freecodecamp.org/) which I used for learning. From this tutorial I get information about Docker and Kubernetes but I also add to this a web application wrote in Flask. 
 
-Project has steps starting with simple Docker and ending with complex Kubernetes topics. You can find a lot of notes or overviews in folders split for every each of them. Ofcourse here is the contents list If you are only intrested in a specific topic
+Project has steps starting with simple Docker and ending with complex Kubernetes topics. You can find a lot of notes or overviews in folders split for every each of them. Of course here is the contents list If you are only intrested in a specific topic
 
 ## Motivation
 I made this project, because I would like to learn new technologies (Docker and Kubernetes in this case) for my future work. This tools are also on the top of most popular containerization platforms, so it can be very helpful to create future projects.
@@ -29,6 +29,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 1. [Tools installation](ToolsInstallation/ToolsInstallation.md)
 2. [First look at web app](FirstLook/FirstLook.md)
 3. [Docker run app](DockerRunApp/DockerRunApp.md)
+4. [Kubernetes pods](KubernetesPods/KubernetesPods.md)
 
 ## Languages
 <div>

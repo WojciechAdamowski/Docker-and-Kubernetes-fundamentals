@@ -7,7 +7,7 @@ In this section we will take a closer look at the:
 3. [Enable Powershell custom script running](#step-3---enable-powershell-custom-script-running)
 
 ## Info
-In this section, we will focus on one of the possible ways to install the previously mentioned tools. Ofcourse you can install this tools on your own.
+In this section, we will focus on one of the possible ways to install the previously mentioned tools. Of course you can install this tools on your own.
 
 ## Steps
 
