@@ -1,4 +1,4 @@
-$repoPath = 'your\repo\path'
+$repoPath = "your\repository\path"
 
 # Run app using pod
 Set-Location $repoPath
@@ -20,8 +20,8 @@ kubectl apply --filename .\KubernetesPods\Yamls\pod-with-liveness.yaml
 kubectl describe pod web-app-with-liveness
 
 # Check that are every pod exist
-kubectl logs web-app-with-liveness
 kubectl get pods -o wide 
+kubectl logs web-app-with-liveness
 
 # Delete all created objects for clarity
 kubectl delete --filename .\KubernetesPods\Yamls\pod.yaml
