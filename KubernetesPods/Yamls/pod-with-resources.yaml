@@ -1,16 +1,16 @@
-apiVersion: v1
-kind: Pod
+apiVersion: v1 # The version of the Kubernetes API being used
+kind: Pod # The type of Kubernetes object being created, in this case, a Pod
 metadata:
-  name: web-app-with-resources
+  name: web-app-with-resources # The name of the Pod
   labels:
-    name: web-app-with-resources
+    name: web-app-with-resources # Labels to categorize and organize the Pod
 spec:
   containers:
-  - name: docker-run-app
-    image: docker-run-app:v1
+  - name: docker-run-app # The name of the container within the Pod
+    image: docker-run-app:v1 # The Docker image to be used for this container
     ports:
-    - containerPort: 5000
+    - containerPort: 5000 # The port that the container exposes
     resources:
       limits:
-        cpu: "700m"
-        memory: "256Mi"
+        cpu: "700m" # The maximum amount of CPU the container can use (700 millicores)
+        memory: "256Mi" # The maximum amount of memory the container can use (256 MiB)
