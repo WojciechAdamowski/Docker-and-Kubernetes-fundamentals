@@ -2,10 +2,10 @@
 ![My Skills](https://skillicons.dev/icons?i=kubernetes,powershell)
 
 In this section we will take a closer look at the:
-1. [How to run web application using simple pod]()
-2. [Pod with configured resources]()
-3. [Pod with configured liveness]()
-4. [Checking and cleaning]()
+1. [How to run web application using simple pod](#step-1---how-to-run-web-application-using-simple-pod)
+2. [Pod with configured resources](#step-2---pod-with-configured-resources)
+3. [Pod with configured liveness](#step-3---pod-with-configured-liveness)
+4. [Checking and cleaning](#step-4---checking-and-cleaning)
 
 ## Info
 ### Order 
