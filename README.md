@@ -29,6 +29,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 1. [Tools installation](ToolsInstallation/ToolsInstallation.md)
 2. [First look at web app](FirstLook/FirstLook.md)
 3. [Docker run app](DockerRunApp/DockerRunApp.md)
+4. [Kubernetes pods](KubernetesPods/KubernetesPods.md)
 
 ## Languages
 <div>
