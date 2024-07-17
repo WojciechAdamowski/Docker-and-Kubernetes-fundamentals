@@ -1,6 +1,6 @@
 $repoPath = "your\repository\path"
 
-# Run app using pod
+# Set repo path
 Set-Location $repoPath
 
 # Create image for pods 

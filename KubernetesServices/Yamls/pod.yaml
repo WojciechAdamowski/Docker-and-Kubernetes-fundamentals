@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-app-for-services
+  labels:
+    name: web-app-for-services
+spec:
+  containers:
+  - name: docker-run-app
+    image: docker-run-app:v1
+    ports:
+    - containerPort: 5000
+    resources:
+      limits:
+        cpu: "200m"
+        memory: "128Mi"

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-app-for-services-busybox
+  labels:
+    name: web-app-for-services-busybox
+spec:
+  containers:
+  - name: docker-app-busybox
+    image: busybox
+    ports:
+    - containerPort: 5000
+    resources:
+      limits:
+        cpu: "200m"
+        memory: "128Mi"
+    command:
+      - sleep
+      - "3600"
