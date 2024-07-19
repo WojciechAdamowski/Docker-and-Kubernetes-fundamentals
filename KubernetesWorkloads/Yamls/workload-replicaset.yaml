@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: web-workload-replicaset
+  labels:
+    name: web-workload-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: web-workload-replicaset
+  template:
+    metadata:
+      labels:
+        name: web-workload-replicaset
+    spec:
+      containers:
+      - name: docker-run-app
+        image: docker-run-app:v1

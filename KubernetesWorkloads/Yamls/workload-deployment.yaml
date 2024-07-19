@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-workload-deployment
+  labels:
+    name: web-workload-deployment
+spec:
+  replicas: 5
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 4
+  selector:
+    matchLabels:
+      name: web-workload-deployment
+  template:
+    metadata:
+      labels:
+        name: web-workload-deployment
+    spec:
+      containers:
+      - name: docker-run-app
+        image: docker-run-app:v1
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+        ports:
+          - containerPort: 5000

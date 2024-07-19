@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web-workload-statefulset
+spec:
+  selector:
+    matchLabels:
+      name: web-service-cluster-ip
+  serviceName: web-service-cluster-ip
+  replicas: 3 
+  minReadySeconds: 10 
+  template:
+    metadata:
+      labels:
+        name: web-service-cluster-ip 
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: docker-run-app
+        image: docker-run-app:v1
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+        ports:
+          - containerPort: 5000
+        volumeMounts:
+        - name: data
+          mountPath: /app/data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "my-storage-class"
+      resources:
+        requests:
+          storage: 1Gi
