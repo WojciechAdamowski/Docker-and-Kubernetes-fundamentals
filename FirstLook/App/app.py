@@ -3,20 +3,10 @@ from flask import Flask
 app = Flask(__name__)
 
 '''
-Check that is file exist, if not it will create it
-'''
-def check_file():
-    try:
-        f = open("./data/data.txt", "r")
-    except:
-        f = open("./data/data.txt", "w")
-        f.write("Hey thanks for look at my project!\n")
-'''
 When you route to "/read" it will read a file and return content to the website 
 '''
 @app.route("/read")
 def read_messages():
-    check_file()
     f_read = open("./data/data.txt", "r")
     file_content = ""
 
@@ -33,7 +23,6 @@ When you route to "/append" it will add "new message" to the data.txt file
 '''
 @app.route("/append")
 def add_message():
-    check_file()
     f_append = open("./data/data.txt", "a")
     f_append.write("new message\n")
     f_append.close()
