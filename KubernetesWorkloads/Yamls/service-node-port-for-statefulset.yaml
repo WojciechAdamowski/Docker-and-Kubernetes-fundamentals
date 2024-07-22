@@ -1,11 +1,11 @@
 apiVersion: v1 # The version of the Kubernetes API being used
 kind: Service # The type of Kubernetes object being created, in this case, a Service
 metadata:
-  name: web-service-node-port-for-deployment # The name of the Service
+  name: web-service-node-port-for-statefulset # The name of the Service
 spec:
   type: NodePort # The type of Service, which exposes the service on each Node's IP at a static port
   selector: 
-    name: web-workload-deployment # A label selector to identify the Pods that this Service should route traffic to
+    name: web-workload-statefulset # A label selector to identify the Pods that this Service should route traffic to
   ports: 
   - nodePort: 32410 # The port on each Node to expose the Service
     port: 80 # The port that the Service will expose

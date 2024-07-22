@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: web-service-cluster-ip
-  serviceName: web-service-cluster-ip
+      name: web-workload-statefulset
+  serviceName: web-service-node-port-for-statefulset
   replicas: 3 
   minReadySeconds: 10 
   template:
     metadata:
       labels:
-        name: web-service-cluster-ip 
+        name: web-workload-statefulset
     spec:
       terminationGracePeriodSeconds: 10
       containers:
@@ -23,16 +23,15 @@ spec:
             cpu: "500m"
             memory: "128Mi"
         ports:
-          - containerPort: 5000
+        - containerPort: 5000
         volumeMounts:
-        - name: data
-          mountPath: /app/data
+        - name: stats
+          mountPath: /app/stats
   volumeClaimTemplates:
   - metadata:
-      name: data
+      name: stats
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
       resources:
         requests:
-          storage: 1Gi
+          storage: 5Mi
