@@ -8,14 +8,15 @@ docker image build --rm --pull --tag docker-run-app:v1 --file dockerfile .
 docker image ls docker-run-app
 
 # Create Volume
-kubectl create --filename .\KubernetesVolumes\Yamls\volume-persistent.yaml
+kubectl apply --filename .\KubernetesVolumes\Yamls\volume-persistent.yaml
 # Create Volume Claim
-kubectl create --filename .\KubernetesVolumes\Yamls\volume-persistent-claim.yaml
+kubectl apply --filename .\KubernetesVolumes\Yamls\volume-persistent-claim.yaml
 # Create Service for entering Pod
-kubectl create --filename .\KubernetesVolumes\Yamls\service-node-port.yaml
+kubectl apply --filename .\KubernetesVolumes\Yamls\service-node-port.yaml
 # Create Pod connected to Volume Claim
-kubectl create --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
+kubectl apply --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
 
+# Wait few seconds
 # Check that is web app available
 Start-Process "http://localhost:32410/"
 Start-Process "http://localhost:32410/read"
@@ -31,7 +32,8 @@ kubectl get pvc
 
 # Recreate the Pod for testing that is volume storing the data
 kubectl delete --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
-kubectl create --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
+kubectl apply --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
+# Wait few seconds
 Start-Process "http://localhost:32410/read"
 
 # Delete all previous created obejcts starting from pod
