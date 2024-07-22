@@ -31,6 +31,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 3. [Docker run app](DockerRunApp/DockerRunApp.md)
 4. [Kubernetes pods](KubernetesPods/KubernetesPods.md)
 5. [Kubernetes services](KubernetesServices/KubernetesServices.md)
+5. [Kubernetes volumes](KubernetesServices/KubernetesVolumes.md)
 
 ## Languages
 <div>
