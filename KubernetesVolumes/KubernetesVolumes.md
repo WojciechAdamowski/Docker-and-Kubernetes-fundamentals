@@ -2,8 +2,8 @@
 ![My Skills](https://skillicons.dev/icons?i=kubernetes,powershell)
 
 In this section we will tak a closer look at the:
-1. [Create Volume from file and attach Pod to it]()
-2. [Recreate Pod and check storing data]()
+1. [Create Volume from file and attach Pod to it](#step-1---create-volume-from-file-and-attach-pod-to-it)
+2. [Recreate Pod and check storing data](#step-2---recreate-pod-and-check-storing-data)
 
 ## Info 
 ### Order 
@@ -25,3 +25,125 @@ In this section we will focus on how to use the services to expose pods to each 
 * [kubectl delete](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_delete/)
 
 </details>
+
+## Steps
+### Step 1 - Create Volume from file and attach Pod to it
+
+1. Open the directory where is the repository
+
+```powershell
+Set-Location "your\repository\path"
+
+# RETURNS: null
+```
+
+2. Create the Docker image which Pod will use to create containers
+
+```powershell
+docker image build --rm --pull --tag docker-run-app:v1 --file dockerfile .
+
+# RETURNS: Informations about building process
+```
+
+3. Check if our image exists
+
+```powershell
+docker image ls docker-run-app
+
+# RETURNS:
+# REPOSITORY       TAG       IMAGE ID       CREATED      SIZE
+# docker-run-app   v1        9e9debb3d1e9   2 days ago   166MB
+
+# INFO: Image properties
+```
+
+4. Create Volume 
+```powershell
+kubectl apply --filename .\KubernetesVolumes\Yamls\volume-persistent.yaml
+
+# RETURNS: Information about creating a Volume
+```
+
+5. Create Volume Claim
+```powershell
+kubectl apply --filename .\KubernetesVolumes\Yamls\volume-persistent-claim.yaml
+
+# RETURNS: Information about creating a Volume Claim
+```
+
+6. Create Service for entering Pod
+```powershell
+kubectl apply --filename .\KubernetesVolumes\Yamls\service-node-port.yaml
+
+# RETURNS: Information about creating a Service
+```
+
+7. Create Pod connected to Volume Claim
+```powershell
+kubectl apply --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
+
+# RETURNS: Information about creating a Pod
+```
+
+8. Wait few seconds and check that is web app available 
+```powershell
+Start-Process "http://localhost:32410/"
+
+# RETURNS: null
+```
+
+9. Read content, add some messages to it and read it again. Now this content is storing in Volume not in the Pod.
+```powershell
+Start-Process "http://localhost:32410/read"
+Start-Process "http://localhost:32410/append"
+Start-Process "http://localhost:32410/read"
+
+# RETURNS: null
+```
+
+10. Chack if Volume and Claim are fine. Firstly check Volume
+```powershell
+kubectl get pv
+
+# RETURNS: 
+# NAME             CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                          STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+# web-app-volume   10Mi       RWO            Retain           Bound    default/web-app-volume-claim   ssd            <unset>                          8m38s
+```
+
+11. Check Volume Claim
+```powershell
+kubectl get pvc
+
+# RETURNS:
+# NAME                   STATUS   VOLUME           CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+# web-app-volume-claim   Bound    web-app-volume   10Mi       RWO            ssd            <unset>                 2m
+```
+
+### Step 2 - Recreate Pod and check storing data
+
+1. Reacreate Pod atteched to Volume
+```powershell
+kubectl delete --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
+kubectl apply --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
+
+# RETURNS: Informations about deleting and creating Pod
+```
+
+2. Check that is information still there. As you can see there is still a message because all data is now storing in the Volume
+```powershell
+Start-Process "http://localhost:32410/read"
+
+# RETURNS: null
+```
+
+3. Cleanup
+```powershell
+kubectl delete --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
+kubectl delete --filename .\KubernetesVolumes\Yamls\service-node-port.yaml
+kubectl delete --filename .\KubernetesVolumes\Yamls\volume-persistent-claim.yaml
+kubectl delete --filename .\KubernetesVolumes\Yamls\volume-persistent.yaml
+
+docker image rm docker-run-app:v1
+
+# RETURNS: Informations about deleting
+```
