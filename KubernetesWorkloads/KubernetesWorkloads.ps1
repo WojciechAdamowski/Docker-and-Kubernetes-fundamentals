@@ -19,6 +19,7 @@ kubectl describe deployments
 kubectl apply --filename .\KubernetesWorkloads\Yamls\service-node-port-for-deployment.yaml
 Start-Process "http://localhost:32410/"
 
+
 # Update Deployment
 kubectl set image deployment/web-workload-deployment docker-run-app=docker-run-app:v1.1
 # Check rollout status immediately to see updating status
@@ -28,8 +29,9 @@ kubectl set image deployment/web-workload-deployment docker-run-app=docker-run-a
 # Check rollout status immediately to see updating status
 kubectl rollout status --filename .\KubernetesWorkloads\Yamls\workload-deployment.yaml
 
-# Delete Deployment
+# Delete Deployment and Service
 kubectl delete --filename .\KubernetesWorkloads\Yamls\workload-deployment.yaml
+kubectl delete --filename .\KubernetesWorkloads\Yamls\service-node-port-for-deployment.yaml
 
 
 # Create ReplicaSet
@@ -43,14 +45,29 @@ kubectl delete --filename .\KubernetesWorkloads\Yamls\workload-replicaset.yaml
 
 
 # Prepare service for Statefulset 
-kubectl apply --filename .\KubernetesWorkloads\Yamls\service-cluster-ip-for-statefulset.yaml
+kubectl apply --filename .\KubernetesWorkloads\Yamls\service-node-port-for-statefulset.yaml
 # Create Statefulset
 kubectl apply --filename .\KubernetesWorkloads\Yamls\workload-statefulset.yaml
-#TODO Update stateful set with volume
+# Check that is Pod available 
+kubectl get pods -o wide
+# Here are Volume Claims created for each Pod 
+kubectl get pvc
+kubectl get statefulset 
+kubectl get svc -o wide
+# Check if application is available
+Start-Process "http://localhost:32410/"
+# As you can see there is new folder 'stats' provided by Volume Claim attached to StatefulSet
+kubectl exec web-workload-statefulset-0 -it -- /bin/sh
+ls
+exit
 
 # Delete Stateful
 kubectl delete --filename .\KubernetesWorkloads\Yamls\workload-statefulset.yaml
-kubectl delete --filename .\KubernetesWorkloads\Yamls\service-cluster-ip-for-statefulset.yaml
+kubectl delete --filename .\KubernetesWorkloads\Yamls\service-node-port-for-statefulset.yaml
+# Deleting PVCs
+kubectl delete pvc/stats-web-workload-statefulset-0
+kubectl delete pvc/stats-web-workload-statefulset-1
+kubectl delete pvc/stats-web-workload-statefulset-2
 
 
 # Create Job  
