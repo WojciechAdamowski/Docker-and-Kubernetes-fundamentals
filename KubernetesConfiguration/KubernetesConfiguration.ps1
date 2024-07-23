@@ -36,3 +36,5 @@ kubectl logs pods/web-app-secret
 # Cleanup
 kubectl delete --filename .\KubernetesConfiguration\Yamls\pod-with-secret.yaml
 kubectl delete --filename .\KubernetesConfiguration\Yamls\configuration-secret.yaml
+
+docker image rm docker-run-app:v1
