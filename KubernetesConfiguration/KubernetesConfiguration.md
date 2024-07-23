@@ -2,9 +2,9 @@
 ![My Skills](https://skillicons.dev/icons?i=kubernetes,powershell,bash)
 
 In this section we will take a closer look at the:
-1. [How to use ConfigMaps in the Pod]()
-2. [Using ConfigMap in filelike style]()
-3. [How to use Secrets in the Pod]()
+1. [How to use ConfigMaps in the Pod](#step-1---how-to-use-configmaps-in-the-pod)
+2. [Using ConfigMap in filelike style](#step-2---using-configmap-in-filelike-style)
+3. [How to use Secrets in the Pod](#step-3---how-to-use-secrets-in-the-pod)
 
 ## Info
 ### Order 
