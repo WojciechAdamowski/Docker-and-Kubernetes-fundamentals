@@ -11,11 +11,11 @@ docker image ls docker-run-app
 
 # Create Deployment
 kubectl apply --filename .\KubernetesWorkloads\Yamls\workload-deployment.yaml
-# Check informations about pods, replicasets and deployments
+# Check informations about pods, replicasets and deployment
 kubectl get pods -o wide
 kubectl get deployments
 kubectl describe deployments
-#Use service to check if web app is available
+# Use service to check if web app is available
 kubectl apply --filename .\KubernetesWorkloads\Yamls\service-node-port-for-deployment.yaml
 Start-Process "http://localhost:32410/"
 
