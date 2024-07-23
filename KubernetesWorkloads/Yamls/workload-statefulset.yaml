@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web-workload-statefulset
+spec:
+  selector:
+    matchLabels:
+      name: web-workload-statefulset
+  serviceName: web-service-node-port-for-statefulset
+  replicas: 3 
+  minReadySeconds: 10 
+  template:
+    metadata:
+      labels:
+        name: web-workload-statefulset
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: docker-run-app
+        image: docker-run-app:v1
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: stats
+          mountPath: /app/stats
+  volumeClaimTemplates:
+  - metadata:
+      name: stats
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Mi
