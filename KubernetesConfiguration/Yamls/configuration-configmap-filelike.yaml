@@ -4,7 +4,7 @@ metadata:
   name: web-configuration-configmap-filelike # The name of the ConfigMap
 data: 
   web-app.properties: | # The key that represents a file-like property
-    user.name=Peter # Property for the user's first name
-    user.lastname=Novac # Property for the user's last name
-    user.birthdate=10.05.1980 # Property for the user's birth date
-    user.family=Anna,Tom # Property for the user's family members
+    user.name=Peter
+    user.lastname=Novac
+    user.birthdate=10.05.1980
+    user.family=Anna,Tom
