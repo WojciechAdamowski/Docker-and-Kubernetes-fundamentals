@@ -1,0 +1,17 @@
+apiVersion: v1 # The version of the Kubernetes API being used
+kind: Pod # The type of Kubernetes object being created, in this case, a Pod
+metadata:
+  name: web-app-with-security-context # The name of the Pod
+  labels:
+    name: web-app-with-security-context # Labels to categorize and organize the Pod
+spec:
+  containers: # Main containers that run as part of the Pod
+  - name: docker-run-app # The name of the main container
+    image: docker-run-app:v1 # The Docker image to be used for this container
+    ports:
+    - containerPort: 5000 # The port that the container exposes
+  securityContext:
+    runAsUser: 5678 # The user ID to run all containers in the Pod as
+    runAsGroup: 5678 # The group ID to run all containers in the Pod as
+    fsGroup: 5678 # The group ID to use for filesystem ownership
+    fsGroupChangePolicy: "OnRootMismatch" # Policy to change ownership and permissions of the volume when it is mounted
