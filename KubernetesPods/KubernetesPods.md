@@ -5,7 +5,9 @@ In this section we will take a closer look at the:
 1. [How to run web application using simple pod](#step-1---how-to-run-web-application-using-simple-pod)
 2. [Pod with configured resources](#step-2---pod-with-configured-resources)
 3. [Pod with configured liveness](#step-3---pod-with-configured-liveness)
-4. [Checking and cleaning](#step-4---checking-and-cleaning)
+4. [Pod with configured security context](#step-4---pod-with-configured-security-context)
+5. [Pod with configured init container](#step-5---pod-with-configured-init-container)
+6. [Checking and cleaning](#step-6---checking-and-cleaning)
 
 ## Info
 ### Order 
@@ -119,7 +121,43 @@ kubectl describe pod web-app-with-liveness
 # RETURNS: Information about the Pod
 ```
 
-### Step 4 - Checking and cleaning
+### Step 4 - Pod with configured security context
+
+1. Create Pod with defined security context from the same image
+
+```powershell
+kubectl apply --filename .\KubernetesPods\Yamls\pod-with-security-context.yaml
+
+# RETURNS: pod/web-app-with-security-context created
+```
+
+2. Check if there is created Pod
+
+```powershell
+kubectl describe pod web-app-with-security-context
+
+# RETURNS: Information about the Pod
+```
+
+### Step 5 - Pod with configured init container
+
+1. Create Pod with defined init container from the same image
+
+```powershell
+kubectl apply --filename .\KubernetesPods\Yamls\pod-with-init-container.yaml
+
+# RETURNS: pod/web-app-with-init-container created
+```
+
+2. Check if there is created Pod
+
+```powershell
+kubectl describe pod web-app-with-init-container
+
+# RETURNS: Information about the Pod
+```
+
+### Step 6 - Checking and cleaning
 
 1. Check if there are all the previous created Pods
 
@@ -147,6 +185,8 @@ kubectl logs web-app-with-liveness
 kubectl delete --filename .\KubernetesPods\Yamls\pod.yaml
 kubectl delete --filename .\KubernetesPods\Yamls\pod-with-resources.yaml
 kubectl delete --filename .\KubernetesPods\Yamls\pod-with-liveness.yaml
+kubectl delete --filename .\KubernetesPods\Yamls\pod-with-security-context.yaml
+kubectl delete --filename .\KubernetesPods\Yamls\pod-with-init-container.yaml
 
 docker image rm docker-run-app:v1
 
