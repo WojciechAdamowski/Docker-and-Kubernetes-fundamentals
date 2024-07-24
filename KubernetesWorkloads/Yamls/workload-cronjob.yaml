@@ -1,0 +1,15 @@
+apiVersion: batch/v1 # The version of the Kubernetes API being used, in this case for batch processing
+kind: CronJob # The type of Kubernetes object being created, in this case, a CronJob
+metadata:
+  name: web-workload-cronjob # The name of the CronJob
+spec:
+  schedule: "* * * * *" # The schedule in Cron format (every minute in this example)
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: busybox # The name of the container within the Pod
+            image: busybox # The Docker image to be used for this container
+            command: ["echo", "Hello from the cronjob"] # Command to run in the container
+          restartPolicy: Never # The restart policy for the container (Never restart)

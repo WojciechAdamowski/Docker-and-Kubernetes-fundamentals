@@ -1,9 +1,3 @@
-
-<!-- #TODO ~ Content                                  - Continue to fill this in as the project grows -->
-<!-- #TODO ~ What do you need?                        - Continue to fill this in as the project grows -->
-<!-- #TODO ~ What you can learn from this project?    - Continue to fill this in as the project grows -->
-<!-- #TODO ~ Future                                   - Continue to fill this in as the project grows -->
-
 # Docker-and-Kubernetes-fundamentals
 
 [![My Skills](https://skillicons.dev/icons?i=docker,kubernetes,python,flask,powershell,bash,git,vscode)](https://skillicons.dev)
@@ -11,9 +5,9 @@
 This project has been created for help in first steps with Docker and Kubernetes. 
 
 ## Description
-Project has tutorial format, I mean if I or someone else want to remind something from Docker or Kubernetes can use this project to find notes, or examples of major topics. It is based on the [Docker Containers and Kubernetes Fundamentals – Full Hands-On Course](https://youtu.be/kTp5xUtcalw?si=wtLeE9AIiWMQOtWd) from [freeCodeCamp](https://www.freecodecamp.org/) which I used for learning. From this tutorial I get information about Docker and Kubernetes but I also add to this a web application wrote in Flask. 
+Project has tutorial format, I mean if I or someone else want to remind something from Docker or Kubernetes can use this project to find notes, or examples of major topics. It is based on the [Docker Containers and Kubernetes Fundamentals – Full Hands-On Course](https://youtu.be/kTp5xUtcalw?si=wtLeE9AIiWMQOtWd) from [freeCodeCamp](https://www.freecodecamp.org/) which I used for learning. From this tutorial I get information about Docker and Kubernetes but I also add to this a web application wrote in Python with Flask support. 
 
-Project has steps starting with simple Docker and ending with complex Kubernetes topics. You can find a lot of notes or overviews in folders split for every each of them. Of course here is the contents list If you are only intrested in a specific topic
+Project has steps starting with simple Docker and ending with more complex Kubernetes topics. You can find notes or overviews in folders split for every each of them. Of course here is the contents list If you are only intrested in a specific topic
 
 ## Motivation
 I made this project, because I would like to learn new technologies (Docker and Kubernetes in this case) for my future work. This tools are also on the top of most popular containerization platforms, so it can be very helpful to create future projects.
@@ -24,6 +18,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 - clear notes and examples
 - not on flask app
 - not on app appearance
+- not on powershell
 
 ## Content
 1. [Tools installation](ToolsInstallation/ToolsInstallation.md)
@@ -31,6 +26,9 @@ I made this project, because I would like to learn new technologies (Docker and 
 3. [Docker run app](DockerRunApp/DockerRunApp.md)
 4. [Kubernetes pods](KubernetesPods/KubernetesPods.md)
 5. [Kubernetes services](KubernetesServices/KubernetesServices.md)
+6. [Kubernetes volumes](KubernetesVolumes/KubernetesVolumes.md)
+7. [Kubernetes workloads](KubernetesWorkloads/KubernetesWorkloads.md)
+8. [Kubernetes configuration](KubernetesConfiguration/KubernetesConfiguration.md)
 
 ## Languages
 <div>
@@ -47,7 +45,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 </div>
 <div>
     <img align="left" width=20 height=20 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyR75Q16mHbDINVw8Wko5FH80WH41M7Htb_YAKaaYKxxftp8_SJh_mXCZ2muYMxwspWL8&usqp=CAU"/>
-    <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html#yaml-basics">Yaml</a> - this language is necessary to building the configuration file for Kubernetes</p>
+    <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html#yaml-basics">Yaml</a> - this language is necessary to building the configuration files for Kubernetes</p>
 </div>
 <div>
     <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=git"/>
@@ -62,7 +60,7 @@ I made this project, because I would like to learn new technologies (Docker and 
 ## Tools
 <div>
     <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=docker"/>
-    <p><a href="https://www.docker.com/get-started/">Docker + DockerHub</a></p>
+    <p><a href="https://www.docker.com/get-started/">Docker</a></p>
 </div>
 <div>
     <img align="left" width=20 height=20 src="https://skillicons.dev/icons?i=kubernetes"/>
@@ -82,16 +80,4 @@ I made this project, because I would like to learn new technologies (Docker and 
 2. Docker
 3. Kubernetes
 4. Some IDE
-
-<!-- ## What you can learn from this project? -->
-
-## Future
-1. [ ] Add database - Postgres/Oracle/MySQL
-
-<!-- ## License -->
-
-## Helpful links
-* https://www.makeareadme.com/
-* https://medium.com/@kc_clintone/the-ultimate-guide-to-writing-a-great-readme-md-for-your-project-3d49c2023357
-* https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 

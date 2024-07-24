@@ -1,0 +1,10 @@
+apiVersion: v1 # The version of the Kubernetes API being used
+kind: ConfigMap # The type of Kubernetes object being created, in this case, a ConfigMap
+metadata:
+  name: web-configuration-configmap-filelike # The name of the ConfigMap
+data: 
+  web-app.properties: | # The key that represents a file-like property
+    user.name=Peter
+    user.lastname=Novac
+    user.birthdate=10.05.1980
+    user.family=Anna,Tom

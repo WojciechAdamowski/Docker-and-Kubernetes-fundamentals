@@ -1,0 +1,14 @@
+apiVersion: batch/v1 # The version of the Kubernetes API being used, specific to batch jobs
+kind: Job # The type of Kubernetes object being created, in this case, a Job
+metadata:
+  name: web-workload-job # The name of the Job
+spec:
+  template: # The Pod template that defines the Pods that will be created by the Job
+    spec:
+      containers: # The list of containers to run in the Pod
+      - name: busybox # The name of the container
+        image: busybox # The Docker image to be used for this container
+        command: ["echo", "Hello from the job"] # Command to run in the container
+      restartPolicy: Never # The restart policy for all containers within the Pod; set to 'Never' for Jobs
+  backoffLimit: 4 # The number of retries before marking the Job as failed
+

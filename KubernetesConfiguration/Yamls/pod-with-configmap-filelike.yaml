@@ -1,0 +1,25 @@
+apiVersion: v1 # The version of the Kubernetes API being used
+kind: Pod # The type of Kubernetes object being created, in this case, a Pod
+metadata:
+  name: web-app-configmap-filelike # The name of the Pod
+spec:
+  containers:
+    - name: docker-app-busybox # The name of the container within the Pod
+      image: busybox # The Docker image to be used for this container
+      command: ["sh", "-c", "cd config; cat web-app.properties;"] 
+      # Command to run in the container, changing directory to /config and then displaying the contents of web-app.properties
+      resources:
+        limits:
+          cpu: "200m" # The maximum amount of CPU the container can use (200 millicores)
+          memory: "128Mi" # The maximum amount of memory the container can use (128 MiB)
+      volumeMounts:
+      - name: config # The name of the volume to mount
+        mountPath: "/config" # The path within the container where the volume will be mounted
+        readOnly: true # Specifies that the volume should be mounted as read-only
+  volumes:
+  - name: config # The name of the volume
+    configMap:
+      name: web-configuration-configmap-filelike # The name of the ConfigMap to use as a volume
+      items:
+      - key: "web-app.properties" # The key within the ConfigMap to be used
+        path: "web-app.properties" # The path within the volume where the key's value will be mounted

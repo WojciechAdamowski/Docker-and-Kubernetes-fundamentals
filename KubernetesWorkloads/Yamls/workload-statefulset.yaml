@@ -1,0 +1,37 @@
+apiVersion: apps/v1 # The version of the Kubernetes API being used
+kind: StatefulSet # The type of Kubernetes object being created, in this case, a StatefulSet
+metadata:
+  name: web-workload-statefulset # The name of the StatefulSet
+spec:
+  selector:
+    matchLabels:
+      name: web-workload-statefulset # The label used to identify the Pods managed by this StatefulSet
+  serviceName: web-service-node-port-for-statefulset # The name of the headless service used by the StatefulSet
+  replicas: 3 # The number of desired Pod replicas
+  minReadySeconds: 10 # The minimum number of seconds a new Pod should be ready before being considered available
+  template:
+    metadata:
+      labels:
+        name: web-workload-statefulset # The label assigned to the Pods managed by this StatefulSet
+    spec:
+      terminationGracePeriodSeconds: 10 # The amount of time given to the Pod to terminate gracefully before being forcefully killed
+      containers:
+      - name: docker-run-app # The name of the container within the Pod
+        image: docker-run-app:v1 # The Docker image to be used for this container
+        resources:
+          limits:
+            cpu: "500m" # The maximum amount of CPU the container can use (500 millicores)
+            memory: "128Mi" # The maximum amount of memory the container can use (128 MiB)
+        ports:
+        - containerPort: 5000 # The port that the container exposes
+        volumeMounts:
+        - name: stats # The name of the volume to mount
+          mountPath: /app/stats # The path within the container at which the volume should be mounted
+  volumeClaimTemplates:
+  - metadata:
+      name: stats # The name of the PersistentVolumeClaim
+    spec:
+      accessModes: [ "ReadWriteOnce" ] # The access mode for the PersistentVolume, meaning it can be mounted as read-write by a single node
+      resources:
+        requests:
+          storage: 5Mi # The amount of storage requested for the PersistentVolume

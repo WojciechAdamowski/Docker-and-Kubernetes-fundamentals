@@ -1,0 +1,20 @@
+apiVersion: apps/v1 # The version of the Kubernetes API being used
+kind: ReplicaSet # The type of Kubernetes object being created, in this case, a ReplicaSet
+metadata:
+  name: web-workload-replicaset # The name of the ReplicaSet
+  labels:
+    name: web-workload-replicaset # Labels to identify the ReplicaSet
+spec:
+  replicas: 3 # The number of pod replicas to maintain
+  selector:
+    matchLabels:
+      name: web-workload-replicaset # Label selector to identify the Pods managed by this ReplicaSet
+  template:
+    metadata:
+      labels:
+        name: web-workload-replicaset # Labels to be applied to the Pods created by this ReplicaSet
+    spec:
+      containers:
+      - name: docker-run-app # The name of the container within the Pod
+        image: docker-run-app:v1 # The Docker image to be used for this container
+

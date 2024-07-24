@@ -28,7 +28,7 @@ In this section, we will focus on how to use the Docker file and compose file to
 </details>
 
 ### Docker 
-* **What is Docker?** Docker is a tool which allows you to create a running environment caontaining any Linux distribution and all dependencies needed in your application. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/) 
+* **What is Docker?** Docker is a tool which allows you to create a running environment containing any Linux distribution and all dependencies needed in your application. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/) 
 * **What is Docker image?** This is build for run environment. You can create it from Docker file where you set dependencies, ports and so on. If you want to share Docker project with someone, you are using Docker image to achive this. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#images) 
 * **What is Docker container?** This is running environment for our project. Inside of this you can run commands to launch previously written applications. You must create Docker image to run Docker container. In short, a container is a running image. More information in the [official documentation](https://docs.docker.com/guides/docker-overview/#containers) 
 
@@ -81,13 +81,13 @@ In this section, we will focus on how to use the Docker file and compose file to
 <details>
 <summary> Parameters - docker container run </summary>
 
-| Parameter     | Value                 | Description |
-| ---------     | -----                 | ----------- |
-| --rm          | _switch_              | Use it if you'd like Docker to automatically clean up the container and remove the file system when the container exits |
-| --detach      | _switch_              | Running container in detach mode and return container id |
-| --name        | {name}                | Container name, it can't contains large characters |
-| --publish     | {port/protocol}       | This parameter bind container port 5000 to TCP port 5000 of the host |
-| IMAGE_NAME    | {image_name}          | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
+| Parameter     | Value                             | Description |
+| ---------     | -----                             | ----------- |
+| --rm          | _switch_                          | Use it if you'd like Docker to automatically clean up the container and remove the file system when the container exits |
+| --detach      | _switch_                          | Running container in detach mode and return container id |
+| --name        | {name}                            | Container name, it can't contains large characters |
+| --publish     | {port:target_port/protocol}       | This parameter bind container target_port to TCP port of the host |
+| IMAGE_NAME    | {image_name}                      | This parameter specifies where to find the files for the "context" of the build on the Docker daemon |
 
 </details>
 
@@ -253,6 +253,8 @@ docker container run --rm --detach --name docker-run-app --publish 5000:5000/tcp
 docker container stop docker-run-app
 docker volume remove docker-run-app-volume
 docker image remove docker-run-app:v1
+
+# RETURN: Deleting info
 ```
 
 ### Step 3 - Running the application using the Docker compose file
@@ -294,4 +296,6 @@ docker compose --project-name docker-run-app-compose down
 ```powershell
 docker volume remove docker-run-app-volume
 docker image remove docker-run-app:v1
+
+# RETURN: Deleting info
 ```
