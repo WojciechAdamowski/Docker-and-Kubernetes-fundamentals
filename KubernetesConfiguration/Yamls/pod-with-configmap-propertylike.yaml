@@ -1,0 +1,30 @@
+apiVersion: v1 # The version of the Kubernetes API being used
+kind: Pod # The type of Kubernetes object being created, in this case, a Pod
+metadata:
+  name: web-app-configmap-propertylike # The name of the Pod
+spec:
+  containers:
+    - name: docker-app-busybox # The name of the container within the Pod
+      image: busybox # The Docker image to be used for this container
+      command: ["sh", "-c", "echo USER_NAME: ${USER_NAME} - USER_LAST_NAME: ${USER_LAST_NAME} - USER_BIRTH_DATE: ${USER_BIRTH_DATE}"] 
+      # Command to run in the container, echoing the environment variables
+      env: # Define environment variables for the container
+        - name: USER_NAME # The name of the environment variable
+          valueFrom:
+            configMapKeyRef: # Reference to a key within a Kubernetes ConfigMap
+              name: web-configuration-configmap-propertylike # The name of the ConfigMap
+              key: name # The key within the ConfigMap to use for this environment variable
+        - name: USER_LAST_NAME # The name of the environment variable
+          valueFrom:
+            configMapKeyRef: # Reference to a key within a Kubernetes ConfigMap
+              name: web-configuration-configmap-propertylike # The name of the ConfigMap
+              key: lastname # The key within the ConfigMap to use for this environment variable
+        - name: USER_BIRTH_DATE # The name of the environment variable
+          valueFrom:
+            configMapKeyRef: # Reference to a key within a Kubernetes ConfigMap
+              name: web-configuration-configmap-propertylike # The name of the ConfigMap
+              key: birthdate # The key within the ConfigMap to use for this environment variable
+      resources:
+        limits:
+          cpu: "200m" # The maximum amount of CPU the container can use (200 millicores)
+          memory: "128Mi" # The maximum amount of memory the container can use (128 MiB)
