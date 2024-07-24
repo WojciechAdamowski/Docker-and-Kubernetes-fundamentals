@@ -2,11 +2,11 @@
 ![My Skills](https://skillicons.dev/icons?i=kubernetes,powershell,bash)
 
 In this section we will tak a closer look at the:
-1. [How to create a Deployment and update it]()
-2. [Creating a ReplicaSet for multiple Pods instantions]()
-3. [How to store application state by creating StatefulSet]()
-4. [Creating a Job for one application run]()
-5. [Creating a CronJob for scheduled application run]()
+1. [How to create a Deployment and update it](#step-1---how-to-create-a-deployment-and-update-it)
+2. [Creating a ReplicaSet for multiple Pods instantions](#step-2---creating-a-replicaset-for-multiple-pods-instantions)
+3. [How to store application state by creating StatefulSet](#step-3---how-to-store-application-state-by-creating-statefulset)
+4. [Creating a Job for one application run](#step-4---creating-a-job-for-one-application-run)
+5. [Creating a CronJob for scheduled application run](#step-5---creating-a-cronjob-for-scheduled-application-run)
 
 ## Info 
 ### Order 
