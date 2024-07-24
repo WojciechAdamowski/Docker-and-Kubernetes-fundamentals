@@ -8,12 +8,12 @@ In this section we will tak a closer look at the:
 ## Info 
 ### Order 
 
-In this section we will focus on how to use the services to expose pods to each other and to the outside. 
+In this section we will focus on how to use the Volumes to store data for Pods. 
 * If you are intresting in Powershell only, look at this [file](KubernetesVolumes.ps1)
 * I only show necessary informations about the Kubernetes services because there are plenty of articles on the web
 
 ### Kubernetes volumes
-* **What is Kubernetes volume?** A volume is a place where we can store data from running containers, because containers only save their data for their lifetime,after that all of it is lost. More information in the [official documentation](https://kubernetes.io/docs/concepts/storage/volumes/)
+* **What is Kubernetes volume?** A volume is a place where we can store data from running containers, because containers only save their data for their lifetime, after that all of it is lost. More information in the [official documentation](https://kubernetes.io/docs/concepts/storage/volumes/)
 * **Which Volume we will focus on?** In this section we focus on the Persistent Volume, because it is piece of the storage in the cluster. It provide storing space in Pods by creating folders which we can use. There are other types of Volumes like: Projected Volumes and Ephemeral Volumes. More information in the [official documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 * **What we need to attach Persistent Volume to Pod?** To attach Volume to Pod we will need Persistent Volume Claim. It is request for storage by a user running the Pod. More information in the [official documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
 
@@ -61,28 +61,28 @@ docker image ls docker-run-app
 ```powershell
 kubectl apply --filename .\KubernetesVolumes\Yamls\volume-persistent.yaml
 
-# RETURNS: Information about creating a Volume
+# RETURNS: persistentvolume/web-app-volume created
 ```
 
 5. Create Volume Claim
 ```powershell
 kubectl apply --filename .\KubernetesVolumes\Yamls\volume-persistent-claim.yaml
 
-# RETURNS: Information about creating a Volume Claim
+# RETURNS: persistentvolumeclaim/web-app-volume-claim created
 ```
 
 6. Create Service for entering Pod
 ```powershell
 kubectl apply --filename .\KubernetesVolumes\Yamls\service-node-port.yaml
 
-# RETURNS: Information about creating a Service
+# RETURNS: service/web-service-node-port created
 ```
 
 7. Create Pod connected to Volume Claim
 ```powershell
 kubectl apply --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
 
-# RETURNS: Information about creating a Pod
+# RETURNS: pod/web-app-for-volumes created
 ```
 
 8. Wait few seconds and check that is web app available 
@@ -101,7 +101,7 @@ Start-Process "http://localhost:32410/read"
 # RETURNS: null
 ```
 
-10. Chack if Volume and Claim are fine. Firstly check Volume
+10. Check if Volume and Claim are fine. Firstly check Volume
 ```powershell
 kubectl get pv
 
@@ -121,7 +121,7 @@ kubectl get pvc
 
 ### Step 2 - Recreate Pod and check storing data
 
-1. Reacreate Pod atteched to Volume
+1. Recreate Pod attached to Volume
 ```powershell
 kubectl delete --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml
 kubectl apply --filename .\KubernetesVolumes\Yamls\pod-with-volume.yaml

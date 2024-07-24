@@ -11,18 +11,18 @@ In this section we will take a closer look at the:
 
 ## Info
 ### Order 
-In this section, we will focus on how to run our web application using a kubernetes pods in different configurations. The configurations are as follows:
-1. Simple pod with no special settings only a basic ones, including pod name, image name and port
+In this section, we will focus on how to run our web application using a kubernetes Pods in different configurations. The configurations are as follows:
+1. Simple Pod with no special settings only a basic ones, including Pod name, image name and port
 2. Pod with resource constraints set
 3. Pod with configured liveness 
 
-At the end we will check all the pods and remove them to avoid cluttering
+At the end we will check all the Pods and remove them to avoid cluttering
 
 * If you are intresting in Powershell only, look at this [file](KubernetesPods.ps1)
-* I only show necessary informations about the Kubernetes pods because there are plenty of articles on the web
+* I only show necessary informations about the Kubernetes Pods because there are plenty of articles on the web
 
 ### Kubernetes 
-* **What is Kubernetes?** Kubernetes is an open source system for automating deployment, scaling and management of containerized applications. Using Kubernetes you can deploy, rollback and scale you applications in organized environment. More information in the [official documentation](https://kubernetes.io/)  
+* **What is Kubernetes?** Kubernetes is an open source system for automating deployment, scaling and management of containerized applications. Using Kubernetes you can deploy, rollback and scale your applications in organized environment. More information in the [official documentation](https://kubernetes.io/)  
 * **What is Kubernetes Node?** Node is a virtual or physical machine. Kubernetes use nodes to run workload by placing containers into Pods. Each node is manageded by the control panel and contains the srvices to necessary to run Pods. More information in the [official documentation](https://kubernetes.io/docs/concepts/architecture/nodes/)   
 * **What is Kubernetes Pod?** Pod is smallest object in Kubernetes that you can create and manage. It is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/pods/)
 
@@ -74,7 +74,7 @@ docker image ls docker-run-app
 ```powershell
 kubectl apply --filename .\KubernetesPods\Yamls\pod.yaml
 
-# RETURNS: Information about creating a Pod
+# RETURNS: pod/web-app created
 ```
 
 5. Show some details of the Pod
@@ -92,7 +92,7 @@ kubectl describe pod web-app
 ```powershell
 kubectl apply --filename .\KubernetesPods\Yamls\pod-with-resources.yaml
 
-# RETURNS: Information about creating a Pod
+# RETURNS: pod/web-app-with-resources created
 ```
 
 2. Check if there is created Pod
@@ -110,7 +110,7 @@ kubectl describe pod web-app-with-resources
 ```powershell
 kubectl apply --filename .\KubernetesPods\Yamls\pod-with-liveness.yaml
 
-# RETURNS: Information about creating a Pod
+# RETURNS: pod/web-app-with-liveness created
 ```
 
 2. Check if there is created Pod
@@ -165,21 +165,29 @@ kubectl describe pod web-app-with-init-container
 kubectl get pods -o wide 
 
 # RETURNS: 
-# NAME                     READY   STATUS    RESTARTS   AGE     IP          NODE             NOMINATED NODE   READINESS GATES
-# web-app                  1/1     Running   0          30m     10.1.0.66   docker-desktop   <none>           <none>
-# web-app-with-liveness    1/1     Running   0          5s      10.1.0.68   docker-desktop   <none>           <none>
-# web-app-with-resources   1/1     Running   0          9m32s   10.1.0.67   docker-desktop   <none>           <none>
+# NAME                            READY   STATUS    RESTARTS   AGE     IP           NODE             NOMINATED NODE   READINESS GATES
+# web-app                         1/1     Running   0          2m21s   10.1.1.158   docker-desktop   <none>           <none>
+# web-app-with-init-container     1/1     Running   0          22s     10.1.1.162   docker-desktop   <none>           <none>
+# web-app-with-liveness           1/1     Running   0          92s     10.1.1.160   docker-desktop   <none>           <none>
+# web-app-with-resources          1/1     Running   0          112s    10.1.1.159   docker-desktop   <none>           <none>
+# web-app-with-security-context   1/1     Running   0          54s     10.1.1.161   docker-desktop   <none>           <none>
 ```
 
 2. You can also check logs of the Pod
-
 ```powershell
 kubectl logs web-app-with-liveness
 
-# RETURNS: Logs of the Pod
+# RETURNS: Data from logs
 ```
 
-3. Remove all objects to keep clarity
+3. Or container in the Pod
+```powershell
+kubectl logs web-app-with-init-container --container init-my-container
+
+# RETURNS: Initializing...
+```
+
+4. Remove all objects to keep clarity
 
 ```powershell
 kubectl delete --filename .\KubernetesPods\Yamls\pod.yaml

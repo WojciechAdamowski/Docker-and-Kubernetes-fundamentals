@@ -14,8 +14,8 @@ In this section we will focus on how to use the services to expose pods to each 
 
 ### Kubernetes services
 * **What is Kubernetes service?** Services are objects used to expose network communication to cluster pods. More information in the [official documentation](https://kubernetes.io/docs/concepts/services-networking/service/)
-* **What is ClusterIP service?** ClusterIP is a type of service which expose communication between pods in the cluster. More information in the [official documentation](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip)
-* **What is NodePort service?** NodePort is a type of service that exposes a pod to the outside. More information in the [official documentation](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
+* **What is ClusterIP service?** ClusterIP is a type of Service which expose communication between pods in the cluster. More information in the [official documentation](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip)
+* **What is NodePort service?** NodePort is a type of Service that exposes a Pod to the outside. More information in the [official documentation](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
 
 <details>
 <summary> Kubernetes commands - official documentation for every command used in this section </summary>
@@ -64,7 +64,7 @@ docker image ls docker-run-app
 ```powershell
 kubectl apply --filename .\KubernetesServices\Yamls\pod.yaml
 
-# RETURNS: Information about creating a Pod
+# RETURNS: pod/web-app-for-services created
 ```
 
 5. Create a pod used to check if communication between pods exist. To check the communication we will use the busybox image.
@@ -72,7 +72,7 @@ kubectl apply --filename .\KubernetesServices\Yamls\pod.yaml
 ```powershell
 kubectl apply --filename .\KubernetesServices\Yamls\pod-busybox.yaml
 
-# RETURNS: Information about creating a Pod
+# RETURNS: pod/web-app-for-services-busybox created
 ```
 
 6. Check that are our pods exist
@@ -90,7 +90,7 @@ kubectl get pods -o wide
 ```powershell
 kubectl apply --filename .\KubernetesServices\Yamls\service-cluster-ip.yaml
 
-# RETURNS: Information about creating a Service
+# RETURNS: service/web-service-cluster-ip created
 ```
 
 8. Check that is service exist. As you can notice there is another service provided by kubernetes

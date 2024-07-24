@@ -7,7 +7,7 @@ In this section we will take a closer look at the:
 3. [The raw startup of web application](#step-3---the-raw-startup-of-web-application)
 
 ## Info
-* I hope you installed everything from the **What do you need?** section
+* I hope you installed everything from the **Tools installation** section
 * If you are only interested in the powershell code, you can find it [here](FirstLook.ps1)
 
 ## Steps
@@ -92,48 +92,11 @@ pip list
 # RETURNS: List of libraries
 ```
 
-7. Exit from venv
-
-```powershell
-deactivate
-
-# RETURNS: null
-# INFO: As you can see there is no more mark (venv) in your terminal
-
-```
-
 ### Step 3 - The raw startup of web application
 
-1. Go to your repo location (where you clone repo)
+1. Take a quick look at the [application](App/app.py) to know what are you running
 
-```powershell
-Set-Location "your\repository\path"
-
-# RETURNS: null
-# INFO: We change directory where we are running powershell commands
-```
-
-2. Go to App folder location in repository e.g. "Docker-and-Kubernetes-fundamentals\FirstLook\App"
-
-```powershell
-Set-Location "FirstLook\App"
-
-# RETURNS: null
-# INFO: We change directory where we are running powershell commands
-```
-
-3. Switch to venv environment
-
-```powershell
-.\venv\Scripts\activate
-
-# RETURNS: null
-# INFO: You can notice there is (venv) mark in your terminal
-```
-
-4. Take a quick look at the [application](App/app.py) to know what are you running
-
-5. Run app using Python
+2. Run app using Python
 
 ```powershell
 python app.py
@@ -141,11 +104,11 @@ python app.py
 # RETURNS: Information about running app in Flask
 ```
 
-6. Check running application at http://127.0.0.1:5000 address, browser should display ```Flask project ver. 1```
+3. Check running application at http://127.0.0.1:5000 address, browser should display ```Flask project ver. 1```
 
-7. If everything looks fine stop application by ```Ctrl + C``` in terminal
+4. If everything looks fine stop application by ```Ctrl + C``` in terminal
 
-8. Exit from venv
+5. Exit from venv
 
 ```powershell
 deactivate

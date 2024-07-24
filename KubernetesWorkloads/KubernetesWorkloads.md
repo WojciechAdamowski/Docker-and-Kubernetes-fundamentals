@@ -11,16 +11,16 @@ In this section we will tak a closer look at the:
 ## Info 
 ### Order 
 
-In this section we will focus on how to use the services to expose pods to each other and to the outside. 
+In this section we will focus on how to use the Workloads to run Pods in different configurations. 
 * If you are intresting in Powershell only, look at this [file](KubernetesWorkloads.ps1)
-* I only show necessary informations about the Kubernetes services because there are plenty of articles on the web
+* I only show necessary informations about the Kubernetes Workloads because there are plenty of articles on the web
 
 ### Kubernetes Workloads
 * **What is Workload?** It is application running on one or set of Kubernetes Pods. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/)
 * **What are the types of Workloads?** There are few types of Workloads, but we will focus on the following: 
     * Deployment - this is the way how you describe a desired state of the Pods. This type of Workload is used to tell the Deployment Controller what set of Pods we want to get. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
     * ReplicaSet - we can use it to maintain set of identical Pods. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
-    * StatefulSet - this workload is created to store the State of the Pod in Persistent Volumes Claims created for each Pod. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+    * StatefulSet - this workload is created to store the state of the Pod in Persistent Volumes Claims created for each Pod. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
     * Job - using this you can make a single or multiple run your Pod. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
     * CronJob - you can use it to make a scheduled Pod which will run on a specific schedule. More information in the [official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
 
@@ -63,8 +63,9 @@ docker image build --rm --pull --tag docker-run-app:v1.1 --file dockerfile .
 docker image ls docker-run-app
 
 # RETURNS:
-# REPOSITORY       TAG       IMAGE ID       CREATED      SIZE
-# docker-run-app   v1        9e9debb3d1e9   2 days ago   166MB
+# REPOSITORY       TAG       IMAGE ID       CREATED        SIZE
+# docker-run-app   v1        569bcddd68cd   13 hours ago   169MB
+# docker-run-app   v1.1      569bcddd68cd   13 hours ago   169MB
 
 # INFO: Image properties
 ```
@@ -73,7 +74,7 @@ docker image ls docker-run-app
 ```powershell
 kubectl apply --filename .\KubernetesWorkloads\Yamls\workload-deployment.yaml
 
-# RETURNS: Informations about creating
+# RETURNS: deployment.apps/web-workload-deployment created
 ```
 
 5. Check informations about deployment, notice that there are 5 created Pods
@@ -363,7 +364,7 @@ kubectl logs $(kubectl get pods --no-headers --output name).Split([Environment]:
 ```powershell
 kubectl delete --filename .\KubernetesWorkloads\Yamls\workload-cronjob.yaml
 
-# RETURNS: cronjob.batch "web-workload-cronjob" deleted
+# RETURNS: Deleting details
 ```
 
 

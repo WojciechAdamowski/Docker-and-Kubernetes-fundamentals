@@ -11,7 +11,7 @@ In this section we will take a closer look at the:
 
 In this section we will focus on how to use the Configurations to set variables for the Pods but outside of them. There are several types of Configurations but we only focus on ConfigMap and Secrets. 
 * If you are intresting in Powershell only, look at this [file](KubernetesConfiguration.ps1)
-* I only show necessary informations about the Kubernetes services because there are plenty of articles on the web
+* I only show necessary informations about the Kubernetes Configurations because there are plenty of articles on the web
 
 ### Kubernetes Configuration
 * **What is ConfigMap?** ConfigMap is using for setting configuration data separately from application code. More information in the [official documentation](https://kubernetes.io/docs/concepts/configuration/configmap/)
@@ -105,7 +105,7 @@ kubectl apply --filename .\KubernetesConfiguration\Yamls\pod-with-configmap-file
 
 3. Wait few seconds and show ConfigMap content from the file
 ```powershell
-kubectl apply --filename .\KubernetesConfiguration\Yamls\pod-with-configmap-filelike.yaml
+kubectl logs pods/web-app-configmap-filelike
 
 # RETURNS: 
 # user.name=Peter
