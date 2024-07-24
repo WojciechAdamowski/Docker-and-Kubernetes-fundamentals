@@ -1,9 +1,3 @@
-
-<!-- #TODO ~ Content                                  - Continue to fill this in as the project grows -->
-<!-- #TODO ~ What do you need?                        - Continue to fill this in as the project grows -->
-<!-- #TODO ~ What you can learn from this project?    - Continue to fill this in as the project grows -->
-<!-- #TODO ~ Future                                   - Continue to fill this in as the project grows -->
-
 # Docker-and-Kubernetes-fundamentals
 
 [![My Skills](https://skillicons.dev/icons?i=docker,kubernetes,python,flask,powershell,bash,git,vscode)](https://skillicons.dev)
@@ -85,16 +79,4 @@ I made this project, because I would like to learn new technologies (Docker and 
 2. Docker
 3. Kubernetes
 4. Some IDE
-
-<!-- ## What you can learn from this project? -->
-
-## Future
-1. [ ] Add database - Postgres/Oracle/MySQL
-
-<!-- ## License -->
-
-## Helpful links
-* https://www.makeareadme.com/
-* https://medium.com/@kc_clintone/the-ultimate-guide-to-writing-a-great-readme-md-for-your-project-3d49c2023357
-* https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
